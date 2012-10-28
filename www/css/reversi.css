@@ -1,0 +1,139 @@
+#game.ui-body-c, 
+#game.ui-overlay-c {
+  text-shadow: 0pt 0px 0pt rgb(0, 0, 0);
+}
+
+.players {
+  color: #000000;
+  font-size: 1.5em;
+  width: 320px;
+}
+
+.players > div {
+  padding-top: 2%;
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+
+#buttons {
+  float: left;
+}
+
+.player1 {
+  color: rgba(0, 0, 0, 1);
+}
+
+.player2 {
+  color: rgba(255, 0, 0, 1);
+}
+
+#home,
+#board {
+  width: 320px;
+}
+#home {
+  background: url('../images/empty_base.png') 0 0 no-repeat;
+}
+
+#board {
+  padding-top: 75px;
+  height: 493px;
+  background: url('../images/base.jpg') 0 0 no-repeat;
+}
+
+table {
+  margin-left: 8px;
+  width: 296px;
+  height: 296px;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+td {
+  width: 37px;
+  height: 37px;
+  /*border: 1px solid #fff;*/
+}
+
+td.p1 div,
+td.p2 div {
+  height: 37px;
+}
+
+td.allowed {
+  background: url('../images/nera.png') 0 0 no-repeat;
+  opacity: 0.2;
+}
+
+td.p2 div {
+  background: url('../images/rossa.png') 0 0 no-repeat;
+}
+
+td.p1 div {
+  background: url('../images/nera.png') 0 0 no-repeat;
+}
+
+/* clearfix */
+
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+  
+  #home,
+  #board {
+    -webkit-background-size:320px 493px;
+    background-size: 320px 493px;
+  }
+  
+  #board {
+    background: url('../images/base@2x.jpg') 0 0 no-repeat;
+  }
+  
+  #home {
+    background: url('../images/empty_base@2x.png') 0 0 no-repeat;
+  }
+  
+  td.p1 div,
+  td.p2 div,
+  td.allowed {
+    -webkit-background-size: 37px 37px;
+    background-size: 37px 37px;
+  }
+  
+  td.allowed {
+    background: url('../images/nera@2x.png') 0 0 no-repeat;
+    opacity: 0.4;
+  }
+  
+  td.p1 div {
+    background: url('../images/nera@2x.png') 0 0 no-repeat;
+  }
+  
+  td.p2 div {
+    background: url('../images/rossa@2x.png') 0 0 no-repeat;
+  }
+}
+

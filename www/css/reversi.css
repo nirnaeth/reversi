@@ -33,13 +33,16 @@
   width: 320px;
 }
 #home {
-  background: url('../images/empty_base.png') 0 0 no-repeat;
+  background: url('../img/empty_base.png') 0 0 no-repeat;
+}
+
+#game {
+  background: url('../img/base.jpg') 0 0 no-repeat;
 }
 
 #board {
   padding-top: 75px;
-  height: 493px;
-  background: url('../images/base.jpg') 0 0 no-repeat;
+  height: 320px;
 }
 
 table {
@@ -62,16 +65,16 @@ td.p2 div {
 }
 
 td.allowed {
-  background: url('../images/nera.png') 0 0 no-repeat;
+  background: url('../img/nera.png') 0 0 no-repeat;
   opacity: 0.2;
 }
 
 td.p2 div {
-  background: url('../images/rossa.png') 0 0 no-repeat;
+  background: url('../img/rossa.png') 0 0 no-repeat;
 }
 
 td.p1 div {
-  background: url('../images/nera.png') 0 0 no-repeat;
+  background: url('../img/nera.png') 0 0 no-repeat;
 }
 
 /* clearfix */
@@ -103,17 +106,17 @@ only screen and (-moz-min-device-pixel-ratio: 1.5),
 only screen and (min-device-pixel-ratio: 1.5) {
   
   #home,
-  #board {
+  #game {
     -webkit-background-size:320px 493px;
     background-size: 320px 493px;
   }
   
-  #board {
-    background: url('../images/base@2x.jpg') 0 0 no-repeat;
+  #game {
+    background: url('../img/base@2x.jpg') 0 0 no-repeat;
   }
   
   #home {
-    background: url('../images/empty_base@2x.png') 0 0 no-repeat;
+    background: url('../img/empty_base@2x.png') 0 0 no-repeat;
   }
   
   td.p1 div,
@@ -124,16 +127,16 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
   
   td.allowed {
-    background: url('../images/nera@2x.png') 0 0 no-repeat;
+    background: url('../img/nera@2x.png') 0 0 no-repeat;
     opacity: 0.4;
   }
   
   td.p1 div {
-    background: url('../images/nera@2x.png') 0 0 no-repeat;
+    background: url('../img/nera@2x.png') 0 0 no-repeat;
   }
   
   td.p2 div {
-    background: url('../images/rossa@2x.png') 0 0 no-repeat;
+    background: url('../img/rossa@2x.png') 0 0 no-repeat;
   }
 }
 

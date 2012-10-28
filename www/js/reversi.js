@@ -62,7 +62,6 @@ var Reversi = function () {
     this.b.setTypeAtPosition(new Position(4, 4), 1);
     this.b.setTypeAtPosition(new Position(3, 4), 2);
     this.b.setTypeAtPosition(new Position(4, 3), 2);
-    this.b.append('<a href="#" id="pass_button" data-role="button" data-inline="true" data-theme="a" data-mini="true" disabled="disabled">Passa</a>');
     this.currentPlayer = 1;
   };
 
@@ -244,7 +243,7 @@ var Reversi = function () {
     }
     
     // Append pass button
-    
+    table.after('<a href="#" id="pass_button" data-role="button" data-inline="true" data-theme="a" data-mini="true" disabled="disabled">Passa</a>');
     if (allowedMoves.length === 1 && allowedMoves[0].isPassMove()) {
       $("#pass_button").removeAttr('disabled');
       $("#pass_button").click(passHandler);

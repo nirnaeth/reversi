@@ -1,0 +1,1 @@
+Reversi version with enhanced graphics and phonegapped.

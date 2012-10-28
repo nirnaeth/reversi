@@ -20,6 +20,10 @@
   float: left;
 }
 
+.button_disabled {
+  background: rgba(173, 173, 173, 0.7);
+}
+
 .player1 {
   color: rgba(0, 0, 0, 1);
 }

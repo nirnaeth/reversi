@@ -52,7 +52,7 @@
     _results = [];
     while (index < 8 * 8) {
       this.myBoard[index] = 0;
-      _results.push(i++);
+      _results.push(index++);
     }
     return _results;
   };

@@ -36,7 +36,7 @@ Board::clear = ->
   index = 0
   while index < 8 * 8
     @myBoard[index] = 0
-    i++
+    index++
      
 Board::toString = ->
   string = "<table border='1px'>"

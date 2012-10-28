@@ -1,8 +1,17 @@
 /// <reference path="reversi.js"/>
 
 $(document).ready(function () {
+    var g = Reversi();
+    
+    module('Interface');
+    
+    // test('Pass button is disabled at start', function(){
+    //     
+    //     var css_class = $('#pass_button').attr('class');
+    //     equal(css_class, 'button_disabled', 'Class .button_disabled expected');
+    // });
+    
     module("Basic game mechanics");
-    g = Reversi();
 
     test("getIndex of position", function () {
         var p = new g.Position(3, 3);

@@ -3,11 +3,6 @@
 var Reversi = function () {
   "use strict";
 
-  // Column names
-  var colName = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
-  // Row names
-  var rowName = ['1', '2', '3', '4', '5', '6', '7', '8'];
-
   var passMove = function () {
     var that = {};
 
@@ -64,6 +59,12 @@ var Reversi = function () {
     this.b.setTypeAtPosition(new Position(4, 3), 2);
     this.currentPlayer = 1;
   };
+  
+  Reversi.prototype.slideMenu = function() {
+    var menu = $('#game_menu');
+    var sliding_width = menu.outerWidth() + 45;
+    menu.animate({ left: parseInt(menu.css('left'),10) == 0 ? -sliding_width : 0 });
+  }
 
   Reversi.prototype.getBoard = function () { return this.b; };
   Reversi.prototype.getCurrentPlayer = function () { return this.currentPlayer; };
@@ -189,14 +190,7 @@ var Reversi = function () {
 
     var table = $("<table>").addClass("board");
     
-    var row = ''//$("<tr>");
-    //row.addClass('col_header');
-    //table.append(row);
-    //row.append($("<td>"));
-    // for (columnIndex = 0; columnIndex < 8; columnIndex++) {
-    //   row.append($("<td>").append(colName[columnIndex]));
-    // }
-    //row.append($("<td>").addClass('row_header'));
+    var row = '';
 
     var internalClickEventHandler = function (event) {
       var r = event.data.row;
@@ -219,19 +213,7 @@ var Reversi = function () {
           playerTwoCount = playerTwoCount + 1;
           field.addClass("p2").append('<div></div');
         }
-        /*var movesIndex;
-        if (type === 0) {
-          for (movesIndex = 0; movesIndex < allowedMoves.length; movesIndex++) {
-            var move = allowedMoves[movesIndex];
-            if (move.isPassMove() === false && move.isGameOver() === false) {
-              var location = move.getPosition();
-              if (location.getRow() === rowIndex && location.getColumn() === columnIndex) {
-                field.addClass("allowed");
-                //field.addClass("p" + game.getCurrentPlayer());
-              }
-            }
-          }
-        }*/
+        
         // Draw field
         if (type === 0) {
           field.click({ row: rowIndex, column: columnIndex }, internalClickEventHandler);
@@ -428,16 +410,9 @@ var Reversi = function () {
     var game = new Reversi();
     game.setup();
 
-    // var addMoveToList = function (player, move) {
-    //   $("#movelist").append("<span class='player" + player + "'>Player " + player + " made move " +
-    //          move.show() + "</span><br/>");
-    //   var current = $("#output").val();
-    //   if (current.toString().trim().length == 0) {
-    //     $("#output").val(move.show());
-    //   } else {
-    //     $("#output").val(current + ":" + move.show());
-    //   }
-    // };
+    $('#play_game').click(function() {
+      game.slideMenu();
+    });
     
     var opponentMove = function () {
       /// <summary>Make a computer move</summary>

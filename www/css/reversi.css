@@ -36,9 +36,30 @@
 #board {
   width: 320px;
 }
+
+#game_menu,
 #home {
   background: url('../img/empty_base.png') 0 0 no-repeat;
 }
+
+#game_menu {
+  width: 280px;
+  height: 300px;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  z-index: 20;
+  -webkit-transform:rotate(20deg);
+  transform:rotate(20deg);
+  box-shadow: 3px 3px 2px #000;
+}
+
+/* #hidden_menu {
+  -webkit-transition: top 5s ease-in-out;
+  -moz-transition: top 5s ease-in-out;
+  -o-transition: top 5s ease-in-out;
+  transition: top 5s ease-in-out;
+} */
 
 #game {
   background: url('../img/base.jpg') 0 0 no-repeat;

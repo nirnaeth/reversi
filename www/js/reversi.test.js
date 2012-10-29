@@ -3,14 +3,6 @@
 $(document).ready(function () {
     var g = Reversi();
     
-    module('Interface');
-    
-    // test('Pass button is disabled at start', function(){
-    //     
-    //     var css_class = $('#pass_button').attr('class');
-    //     equal(css_class, 'button_disabled', 'Class .button_disabled expected');
-    // });
-    
     module("Basic game mechanics");
 
     test("getIndex of position", function () {

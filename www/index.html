@@ -17,12 +17,14 @@
         <nav data-role="content">
           <a href="#" data-role="button" data-theme="a" id="play_button">Gioca</a>
           <a href="#" data-role="button" data-theme="a">Visita la pagina del sito</a>
+          <a href="#options" data-role="button" data-theme="a" id="options_button">Opzioni</a>
+          <a href="#record" data-role="button" data-theme="a" id="record_button">Record</a>
         </nav>
       </div>
       <div id="pause_game">
         <nav data-role="content">
           <a href="#" data-role="button" data-theme="a" id="resume_button">Riprendi</a>
-          <a href="#" data-role="button" data-theme="a" id="options_button">Opzioni</a>
+          <a href="#options" data-role="button" data-theme="a" id="options_button">Opzioni</a>
         </nav>
       </div>
       <div class="players">
@@ -40,15 +42,24 @@
       </section>
       <div class="toolbar">
         <a href="#" id="pass_button" class="button_disabled" data-role="button" data-inline="true" data-theme="a" data-mini="true">Passa</a>
-        <a href="#" id="pause_button" data-role="button" data-inline="true" data-theme="a" data-mini="true">Pausa</a>
+        <a href="#" id="pause_button" class="button_disabled" data-role="button" data-inline="true" data-theme="a" data-mini="true">Pausa</a>
       </div>
     </section>
     
-    <!-- <div id="movelist"></div> -->
     <!-- /GAME -->
-    <!-- RESULT PAGE -->
-    <section id="result" data-role="page">
-      <input id="replay" type="button"/>
+    <!-- OPTIONS -->
+    <section id="options" data-role="page">
+      <div class="toolbar">
+        <a href="#game" id="back_button" data-role="button" data-inline="true" data-theme="a" data-mini="true">Indietro</a>
+      </div>
+    </section>
+    <!-- /OPTIONS -->
+    
+    <!-- RECORD PAGE -->
+    <section id="record" data-role="page">
+      <div class="toolbar">
+        <a href="#game" id="back_button" data-role="button" data-inline="true" data-theme="a" data-mini="true">Indietro</a>
+      </div>
     </section>
     <!-- /RESULT PAGE -->
   </body>

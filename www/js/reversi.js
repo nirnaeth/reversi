@@ -409,24 +409,6 @@ var Reversi = function () {
     /// <summary>Run the game</summary>
     var game = new Reversi();
     game.setup();
-
-    $('#play_button').click(function() {
-      game.slideMenu('#game_menu');
-    });
-    
-    $('#resume_button').click(function() {
-      game.slideMenu('#pause_game');
-      $('#pause_button').removeClass('button_disabled');
-    });
-    
-    $('#pause_button').click(function() {
-      if (!$(this).hasClass('button_disabled')) {
-        game.slideMenu('#pause_game');
-        $(this).removeClass('button_disabled');
-      }
-      $(this).addClass('button_disabled');
-    });
-    
     
     var opponentMove = function () {
       /// <summary>Make a computer move</summary>
@@ -495,6 +477,25 @@ var Reversi = function () {
       drawBoardWithEventHandlers();
     };
 
+    // Menu effects
+    $('#play_button').click(function() {
+      game.slideMenu('#game_menu');
+      $('#pause_button').removeClass('button_disabled');
+    });
+    
+    $('#resume_button').click(function() {
+      game.slideMenu('#pause_game');
+      $('#pause_button').removeClass('button_disabled');
+    });
+    
+    $('#pause_button').click(function() {
+      if (!$(this).hasClass('button_disabled')) {
+        game.slideMenu('#pause_game');
+        $(this).removeClass('button_disabled');
+      }
+      $(this).addClass('button_disabled');
+    });
+    
     $("#replay").click(
        function () {
          var move;

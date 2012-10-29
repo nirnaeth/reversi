@@ -37,7 +37,9 @@
 }
 
 #game_menu,
-#pause_game {
+#pause_game,
+#options,
+#record {
   background: url('../img/empty_base.png') 0 0 no-repeat;
 }
 
@@ -128,8 +130,11 @@ only screen and (-o-min-device-pixel-ratio: 1.5),
 only screen and (-moz-min-device-pixel-ratio: 1.5),
 only screen and (min-device-pixel-ratio: 1.5) {
   
-  #home,
-  #game {
+  #game,
+  #game_menu,
+  #pause_game,
+  #options,
+  #record {
     -webkit-background-size:320px 493px;
     background-size: 320px 493px;
   }
@@ -138,7 +143,10 @@ only screen and (min-device-pixel-ratio: 1.5) {
     background: url('../img/base@2x.jpg') 0 0 no-repeat;
   }
   
-  #home {
+  #game_menu,
+  #pause_game,
+  #options,
+  #record {
     background: url('../img/empty_base@2x.png') 0 0 no-repeat;
   }
   

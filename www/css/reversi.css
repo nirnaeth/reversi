@@ -62,7 +62,7 @@
 }
 
 #game {
-  background: url('../img/base.jpg') 0 0 no-repeat;
+  background: url('../img/base_reversi.png') 0 0 no-repeat;
 }
 
 #board {
@@ -71,7 +71,7 @@
 }
 
 table {
-  margin-left: 8px;
+  margin-left: 12px;
   width: 296px;
   height: 296px;
   table-layout: fixed;
@@ -86,7 +86,8 @@ td {
 
 td.p1 div,
 td.p2 div {
-  height: 37px;
+  margin: 2px 0 0 2px;
+  height: 35px;
 }
 
 td.allowed {
@@ -140,7 +141,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
   
   #game {
-    background: url('../img/base@2x.jpg') 0 0 no-repeat;
+    background: url('../img/base_reversi@2x.png') 0 0 no-repeat;
   }
   
   #game_menu,

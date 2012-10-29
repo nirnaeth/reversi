@@ -1,12 +1,25 @@
 #game.ui-body-c, 
-#game.ui-overlay-c {
+#game.ui-overlay-c,
+#options.ui-body-c,
+#options.ui-overlay-c {
   text-shadow: 0pt 0px 0pt rgb(0, 0, 0);
+}
+
+#options .ui-controlgroup-label {
+  margin-top: 2.3%;
+}
+
+.players,
+.toolbar,
+.switches {
+  width: 320px;
+  padding-left: 12px;
 }
 
 .players {
   color: #000000;
   font-size: 1.5em;
-  width: 320px;
+  padding-left: 0;
 }
 
 .players > div {
@@ -66,12 +79,12 @@
 }
 
 #board {
-  padding-top: 75px;
-  height: 320px;
+  padding-top: 38px;
+  height: 296px;
+  margin-bottom: 10px;
 }
 
 table {
-  margin-left: 12px;
   width: 296px;
   height: 296px;
   table-layout: fixed;

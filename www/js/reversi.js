@@ -64,6 +64,7 @@ var Reversi = function () {
     var menu = $(identifier);
     var sliding_width = menu.outerWidth() + 45;
     menu.animate({ left: parseInt(menu.css('left'),10) == 0 ? -sliding_width : 0 });
+    
   }
 
   Reversi.prototype.getBoard = function () { return this.b; };

@@ -27,6 +27,12 @@
           <a href="#options" data-role="button" data-theme="a" id="options_button" data-transition="slide">Opzioni</a>
         </nav>
       </div>
+      <section id="board">
+      </section>
+      <div class="toolbar">
+        <a href="#" id="pass_button" class="button_disabled" data-role="button" data-inline="true" data-theme="a" data-mini="true">Passa</a>
+        <a href="#" id="pause_button" class="button_disabled" data-role="button" data-inline="true" data-theme="a" data-mini="true">Pausa</a>
+      </div>
       <div class="players">
         <div id="player_1">
           Giocatore 1
@@ -38,17 +44,32 @@
           <div class="score"></div>
         </div>
       </div>
-      <section id="board">
-      </section>
-      <div class="toolbar">
-        <a href="#" id="pass_button" class="button_disabled" data-role="button" data-inline="true" data-theme="a" data-mini="true">Passa</a>
-        <a href="#" id="pause_button" class="button_disabled" data-role="button" data-inline="true" data-theme="a" data-mini="true">Pausa</a>
-      </div>
+      
     </section>
     
     <!-- /GAME -->
     <!-- OPTIONS -->
     <section id="options" data-role="page">
+      <div class="switches">
+        <div data-role="fieldcontain">
+          <fieldset data-role="controlgroup" data-type="horizontal">
+            <legend>Musica</legend>
+            <input type="radio" name="music" id="music_on" value="on" checked="checked" />
+            <label for="music_on">On</label>
+            <input type="radio" name="music" id="music_off" value="off"  />
+            <label for="music_off">Off</label>
+          </fieldset>
+        </div>
+        <div data-role="fieldcontain">
+          <fieldset data-role="controlgroup" data-type="horizontal">
+            <legend>Suoni</legend>
+            <input type="radio" name="sounds" id="sounds_on" value="on" checked="checked" />
+            <label for="sounds_on">On</label>
+            <input type="radio" name="sounds" id="sounds_off" value="off"  />
+            <label for="sounds_off">Off</label>
+          </fieldset>
+        </div>
+      </div>
       <div class="toolbar">
         <a href="#game" id="back_button" data-role="button" data-inline="true" data-theme="a" data-mini="true" data-rel="back">Indietro</a>
       </div>

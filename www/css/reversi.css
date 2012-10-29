@@ -1,3 +1,9 @@
+#game,
+#options,
+#record {
+  padding-left: 12px;
+}
+
 #game.ui-body-c, 
 #game.ui-overlay-c,
 #options.ui-body-c,
@@ -11,9 +17,9 @@
 
 .players,
 .toolbar,
-.switches {
-  width: 320px;
-  padding-left: 12px;
+.switches,
+table {
+  width: 296px;
 }
 
 .players {
@@ -45,19 +51,19 @@
   color: rgba(255, 0, 0, 1);
 }
 
-#board {
-  width: 320px;
-}
-
 #game_menu,
 #pause_game,
+#win_game,
+#lose_game,
 #options,
 #record {
   background: url('../img/empty_base.png') 0 0 no-repeat;
 }
 
 #game_menu,
-#pause_game {
+#pause_game,
+#win_game,
+#lose_game {
   width: 280px;
   height: 300px;
   position: absolute;
@@ -74,19 +80,30 @@
   left: -325px;  
 }
 
+#win_game,
+#lose_game {
+  top: 100px;
+  z-index: 15;
+  left: 370px;
+  -webkit-transform:rotate(-20deg);
+  transform:rotate(-20deg);
+  box-shadow: -3px -3px 2px #000;
+}
+
 #game {
   background: url('../img/base_reversi.png') 0 0 no-repeat;
 }
 
+#board,
+table {
+  height: 296px;
+}
 #board {
   padding-top: 38px;
-  height: 296px;
   margin-bottom: 10px;
 }
 
 table {
-  width: 296px;
-  height: 296px;
   table-layout: fixed;
   border-collapse: collapse;
 }

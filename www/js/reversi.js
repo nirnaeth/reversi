@@ -60,8 +60,8 @@ var Reversi = function () {
     this.currentPlayer = 1;
   };
   
-  Reversi.prototype.slideMenu = function(identifier) {
-    var menu = $(identifier);
+  Reversi.prototype.slideMenu = function(selector) {
+    var menu = $(selector);
     var sliding_width = menu.outerWidth() + 45;
     menu.animate({ left: parseInt(menu.css('left'),10) == 0 ? -sliding_width : 0 });
     
@@ -221,22 +221,28 @@ var Reversi = function () {
         }
         row.append(field);
       }
-      //row.append($("<td>").append(rowName[rowIndex]).addClass('row_header'));
+      
       table.append(row);
     }
     
     if (allowedMoves.length === 1 && allowedMoves[0].isPassMove()) {
       $("#pass_button").removeClass('button_disabled');
       $("#pass_button").click(passHandler);
+    } else {
+      $("#pass_button").addClass('button_disabled');
     }
     
     var state = "";
     if (allowedMoves.length === 1 && allowedMoves[0].isGameOver()) {
       state = "Game over";
+      var current_selector = ''
+      playerOneCount > playerTwoCount ? current_selector = '#win_game' : current_selector = '#lose_game';
+      setTimeout(game.slideMenu(current_selector), 2000);
     }
     
     $('#player_1 .score').html("").append(playerOneCount);
     $('#player_2 .score').html("").append(playerTwoCount);
+    
     return table;
   };
 
@@ -416,6 +422,7 @@ var Reversi = function () {
       /// <returns type="">Returns the opponent move</returns>
       var moves = game.getLegalMoves();
       if (moves.length == 1 && moves[0].isGameOver()) {
+        
         return moves[0];
       } else {
         var bestMove;

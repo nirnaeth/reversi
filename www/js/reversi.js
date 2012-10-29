@@ -60,8 +60,8 @@ var Reversi = function () {
     this.currentPlayer = 1;
   };
   
-  Reversi.prototype.slideMenu = function() {
-    var menu = $('#game_menu');
+  Reversi.prototype.slideMenu = function(identifier) {
+    var menu = $(identifier);
     var sliding_width = menu.outerWidth() + 45;
     menu.animate({ left: parseInt(menu.css('left'),10) == 0 ? -sliding_width : 0 });
   }
@@ -410,9 +410,23 @@ var Reversi = function () {
     var game = new Reversi();
     game.setup();
 
-    $('#play_game').click(function() {
-      game.slideMenu();
+    $('#play_button').click(function() {
+      game.slideMenu('#game_menu');
     });
+    
+    $('#resume_button').click(function() {
+      game.slideMenu('#pause_game');
+      $('#pause_button').removeClass('button_disabled');
+    });
+    
+    $('#pause_button').click(function() {
+      if (!$(this).hasClass('button_disabled')) {
+        game.slideMenu('#pause_game');
+        $(this).removeClass('button_disabled');
+      }
+      $(this).addClass('button_disabled');
+    });
+    
     
     var opponentMove = function () {
       /// <summary>Make a computer move</summary>

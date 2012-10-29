@@ -17,14 +17,14 @@
         <nav data-role="content">
           <a href="#" data-role="button" data-theme="a" id="play_button">Gioca</a>
           <a href="#" data-role="button" data-theme="a">Visita la pagina del sito</a>
-          <a href="#options" data-role="button" data-theme="a" id="options_button">Opzioni</a>
+          <a href="#options" data-role="button" data-theme="a" id="options_button" data-transition="slide">Opzioni</a>
           <a href="#record" data-role="button" data-theme="a" id="record_button">Record</a>
         </nav>
       </div>
       <div id="pause_game">
         <nav data-role="content">
           <a href="#" data-role="button" data-theme="a" id="resume_button">Riprendi</a>
-          <a href="#options" data-role="button" data-theme="a" id="options_button">Opzioni</a>
+          <a href="#options" data-role="button" data-theme="a" id="options_button" data-transition="slide">Opzioni</a>
         </nav>
       </div>
       <div class="players">
@@ -50,7 +50,7 @@
     <!-- OPTIONS -->
     <section id="options" data-role="page">
       <div class="toolbar">
-        <a href="#game" id="back_button" data-role="button" data-inline="true" data-theme="a" data-mini="true">Indietro</a>
+        <a href="#game" id="back_button" data-role="button" data-inline="true" data-theme="a" data-mini="true" data-rel="back">Indietro</a>
       </div>
     </section>
     <!-- /OPTIONS -->
@@ -58,7 +58,7 @@
     <!-- RECORD PAGE -->
     <section id="record" data-role="page">
       <div class="toolbar">
-        <a href="#game" id="back_button" data-role="button" data-inline="true" data-theme="a" data-mini="true">Indietro</a>
+        <a href="#game" id="back_button" data-role="button" data-inline="true" data-theme="a" data-mini="true" data-rel="back">Indietro</a>
       </div>
     </section>
     <!-- /RESULT PAGE -->

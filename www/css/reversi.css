@@ -53,8 +53,7 @@ table {
 
 #game_menu,
 #pause_game,
-#win_game,
-#lose_game,
+#end_game,
 #options,
 #record {
   background: url('../img/empty_base.png') 0 0 no-repeat;
@@ -62,8 +61,7 @@ table {
 
 #game_menu,
 #pause_game,
-#win_game,
-#lose_game {
+#end_game {
   width: 280px;
   height: 300px;
   position: absolute;
@@ -80,14 +78,12 @@ table {
   left: -325px;  
 }
 
-#win_game,
-#lose_game {
+#end_game {
   top: 100px;
   z-index: 15;
   left: 370px;
   -webkit-transform:rotate(-20deg);
   transform:rotate(-20deg);
-  box-shadow: -3px -3px 2px #000;
 }
 
 #game {

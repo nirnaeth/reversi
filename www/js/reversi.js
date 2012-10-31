@@ -60,11 +60,15 @@ var Reversi = function () {
     this.currentPlayer = 1;
   };
   
-  Reversi.prototype.slideMenu = function(selector) {
+  Reversi.prototype.slideMenu = function(selector, direction) {
     var menu = $(selector);
-    var sliding_width = menu.outerWidth() + 45;
-    menu.animate({ left: parseInt(menu.css('left'),10) == 0 ? -sliding_width : 0 });
+    var sliding_width = menu.outerWidth() + 90;
+    if (direction !== 'right') {
+      sliding_width = -sliding_width;
+    }
     
+    menu.animate({ left: parseInt(menu.css('left')) == 0 ? sliding_width : 0 });
+       
   }
 
   Reversi.prototype.getBoard = function () { return this.b; };
@@ -235,9 +239,11 @@ var Reversi = function () {
     var state = "";
     if (allowedMoves.length === 1 && allowedMoves[0].isGameOver()) {
       state = "Game over";
-      var current_selector = ''
-      playerOneCount > playerTwoCount ? current_selector = '#win_game' : current_selector = '#lose_game';
-      setTimeout(game.slideMenu(current_selector), 2000);
+      var selector = '#end_game #result';
+      var result_string = 'Hai vinto!';
+      if (playerOneCount < playerTwoCount) { result_string = 'Hai perso :('; }
+      $(selector).append(result_string);
+      setTimeout(game.slideMenu('#end_game'), 2000);
     }
     
     $('#player_1 .score').html("").append(playerOneCount);
@@ -504,29 +510,10 @@ var Reversi = function () {
       $(this).addClass('button_disabled');
     });
     
-    $("#replay").click(
+    $("#replay_button").click(
        function () {
-         var move;
-         var data =  $("#input").val();
-         var parts = data.split(":");
-         var mymove = parts[0];
-         var opponent = parts[1];
-         var remaining = parts.slice(2, parts.length).join(":");
-         if (mymove.length == 2) {
-           var row = parseInt(mymove[0]);
-           var column = mymove.charCodeAt(1) - "A".charCodeAt(0) + 1;
-           move = positionMove(new Position(row - 1, column - 1));
-         } else if (mymove == "Pass") {
-           move = passMove();
-         }
-         //addMoveToList(game.getCurrentPlayer(), move);
-         game.makeMove(move);
-         var actualOpponentMove = opponentMove();
-         // TODO: Verify that the move is the same (we assume deterministic move evaluation)
-
-         // Redraw
-         $("#input").val(remaining);
-         drawBoardWithEventHandlers();
+         runGame();
+         game.slideMenu('#end_game', 'right');
        }
     );
 

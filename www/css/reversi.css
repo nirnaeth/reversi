@@ -1,7 +1,28 @@
+@font-face {
+  font-family: 'Rumpelstiltskin';
+  src: url('../fonts/Rumpelstiltskin.ttf');
+}
+
 #game,
 #options,
 #record {
   padding-left: 12px;
+}
+
+#game.ui-body-c, 
+#game.ui-overlay-c,
+#options.ui-body-c,
+#options.ui-overlay-c,
+.ui-btn-up-a, 
+.ui-btn-hover-a, 
+.ui-btn-down-a {
+ font-family: 'Rumpelstiltskin', Arial, sans-serif;
+}
+
+.ui-btn-up-a, 
+.ui-btn-hover-a, 
+.ui-btn-down-a {
+  font-weight: 200;
 }
 
 #game.ui-body-c, 

@@ -19,6 +19,14 @@ js/reversi.js
 js/run.js
 
 #--------------------------------
+# CSS
+#--------------------------------
+css/fermo.css
+css/jquery.mobile.css
+css/reset.css
+css/reversi.css
+
+#--------------------------------
 # Images
 #--------------------------------
 img/ajax-loader.gif
@@ -35,4 +43,9 @@ img/nera.png
 img/nera@2x.png
 img/rossa.png
 img/rossa@2x.png
+
+#--------------------------------
+# Fonts
+#--------------------------------
+fonts/Rumpelstiltskin.ttf
 

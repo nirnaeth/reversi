@@ -49,3 +49,10 @@ img/rossa@2x.png
 #--------------------------------
 fonts/Rumpelstiltskin.ttf
 
+#--------------------------------
+# Audio
+#--------------------------------
+sounds/lose.mp3
+sounds/slide_menu.mp3
+sounds/piece.mp3
+

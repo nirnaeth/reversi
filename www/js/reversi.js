@@ -3,6 +3,8 @@
 var Reversi = function () {
   "use strict";
 
+  var slide_menu_audio = new Audio('sounds/slide_menu.mp3');
+  
   var passMove = function () {
     var that = {};
 
@@ -66,9 +68,8 @@ var Reversi = function () {
     if (direction !== 'right') {
       sliding_width = -sliding_width;
     }
-    
+    slide_menu_audio.play();
     menu.animate({ left: parseInt(menu.css('left')) == 0 ? sliding_width : 0 });
-       
   }
 
   Reversi.prototype.getBoard = function () { return this.b; };

@@ -62,14 +62,20 @@ var Reversi = function () {
     this.currentPlayer = 1;
   };
   
-  Reversi.prototype.slideMenu = function(selector, direction) {
+  Reversi.prototype.slideMenu = function(selector, direction, delay) {
     var menu = $(selector);
     var sliding_width = menu.outerWidth() + 90;
     if (direction !== 'right') {
       sliding_width = -sliding_width;
     }
     slide_menu_audio.play();
-    menu.animate({ left: parseInt(menu.css('left')) == 0 ? sliding_width : 0 });
+    
+    if (delay) {
+      menu.delay(delay).animate({ left: parseInt(menu.css('left')) == 0 ? sliding_width : 0 });
+    } else {
+      menu.animate({ left: parseInt(menu.css('left')) == 0 ? sliding_width : 0 });
+    }
+    
   }
 
   Reversi.prototype.getBoard = function () { return this.b; };
@@ -244,7 +250,7 @@ var Reversi = function () {
       var result_string = 'Hai vinto!';
       if (playerOneCount < playerTwoCount) { result_string = 'Hai perso :('; }
       $(selector).append(result_string);
-      setTimeout(game.slideMenu('#end_game'), 2000);
+      game.slideMenu('#end_game', 'left', 70);
     }
     
     $('#player_1 .score').html("").append(playerOneCount);

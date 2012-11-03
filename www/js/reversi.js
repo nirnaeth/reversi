@@ -2,8 +2,7 @@
 
 var Reversi = function () {
   "use strict";
-
-  var slide_menu_audio = new Audio('sounds/slide_menu.mp3');
+  var soundtrack = new Audio("sounds/soundtrack.mp3");
   
   var passMove = function () {
     var that = {};
@@ -27,6 +26,7 @@ var Reversi = function () {
 
   var positionMove = function (position) {
     var that = {};
+    
     var movePosition = position;
     that.isPassMove = function () { return false; };
     that.isGameOver = function () { return false; };
@@ -60,15 +60,29 @@ var Reversi = function () {
     this.b.setTypeAtPosition(new Position(3, 4), 2);
     this.b.setTypeAtPosition(new Position(4, 3), 2);
     this.currentPlayer = 1;
+    this.sounds_option = 'on';
+    this.music_option = 'on';
   };
   
+  Reversi.prototype.playSound = function(path) {
+    if (this.sounds_option === 'on') {
+      var audio = new Audio(path);
+      if (this.music_option === 'on') {
+        soundtrack.pause();
+      }
+      audio.play();
+      if (this.music_option === 'on') {
+        soundtrack.play();
+      }
+    }
+  }
+
   Reversi.prototype.slideMenu = function(selector, direction, delay) {
     var menu = $(selector);
     var sliding_width = menu.outerWidth() + 90;
     if (direction !== 'right') {
       sliding_width = -sliding_width;
     }
-    slide_menu_audio.play();
     
     if (delay) {
       menu.delay(delay).animate({ left: parseInt(menu.css('left')) == 0 ? sliding_width : 0 });
@@ -76,8 +90,9 @@ var Reversi = function () {
       menu.animate({ left: parseInt(menu.css('left')) == 0 ? sliding_width : 0 });
     }
     
+    this.playSound('sounds/slide_menu.mp3');
   }
-
+  
   Reversi.prototype.getBoard = function () { return this.b; };
   Reversi.prototype.getCurrentPlayer = function () { return this.currentPlayer; };
   Reversi.prototype.setCurrentPlayer = function (player) { this.currentPlayer = player; };
@@ -248,9 +263,11 @@ var Reversi = function () {
       state = "Game over";
       var selector = '#end_game #result';
       var result_string = 'Hai vinto!';
-      if (playerOneCount < playerTwoCount) { result_string = 'Hai perso :('; }
+      var result = 'win';
+      if (playerOneCount < playerTwoCount) { result_string = 'Hai perso :('; result = 'lose' }
       $(selector).append(result_string);
-      game.slideMenu('#end_game', 'left', 70);
+      game.slideMenu('#end_game', 'left', 60);
+      game.playSound("sounds/" + result + ".mp3");
     }
     
     $('#player_1 .score').html("").append(playerOneCount);
@@ -430,6 +447,11 @@ var Reversi = function () {
     var game = new Reversi();
     game.setup();
     
+    if (game.music_option === 'on') {
+      soundtrack.loop = true;
+      soundtrack.play();
+    }
+
     var opponentMove = function () {
       /// <summary>Make a computer move</summary>
       /// <returns type="">Returns the opponent move</returns>
@@ -521,8 +543,18 @@ var Reversi = function () {
        function () {
          runGame();
          game.slideMenu('#end_game', 'right');
-       }
-    );
+       });
+    
+    $('#sounds_option input').click(
+      function() {
+        game.sounds_option = $(this).val();
+      });
+
+    $('#music_option input').click(
+      function() {
+        game.music_option = $(this).val();
+        game.music_option === 'on' ? soundtrack.play() : soundtrack.pause();
+      });
 
     drawBoardWithEventHandlers();
   };

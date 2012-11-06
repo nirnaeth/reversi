@@ -6,7 +6,7 @@
 #game,
 #options,
 #record {
-  padding-left: 12px;
+  
 }
 
 #game.ui-body-c, 
@@ -41,6 +41,7 @@
 .switches,
 table {
   width: 296px;
+  margin-left: 12px;
 }
 
 .players {
@@ -87,7 +88,7 @@ table {
   height: 300px;
   position: absolute;
   top: 20px;
-  left: 0;
+  left: -10px;
   z-index: 20;
   -webkit-transform:rotate(20deg);
   transform:rotate(20deg);
@@ -105,6 +106,7 @@ table {
   left: 370px;
   -webkit-transform:rotate(-20deg);
   transform:rotate(-20deg);
+  display: none;
 }
 
 #game {
@@ -115,6 +117,7 @@ table {
 table {
   height: 296px;
 }
+
 #board {
   padding-top: 38px;
   margin-bottom: 10px;
@@ -125,15 +128,18 @@ table {
   border-collapse: collapse;
 }
 
+tr {
+  height: 37px;
+}
+
 td {
   width: 37px;
   height: 37px;
-  /*border: 1px solid #fff;*/
 }
 
 td.p1 div,
 td.p2 div {
-  margin: 2px 0 0 2px;
+  margin: 1px 0 0 1px;
   height: 35px;
 }
 
@@ -183,8 +189,8 @@ only screen and (min-device-pixel-ratio: 1.5) {
   #pause_game,
   #options,
   #record {
-    -webkit-background-size:320px 493px;
-    background-size: 320px 493px;
+    -webkit-background-size: 320px 568px;
+    background-size: 320px 568px;
   }
   
   #game {

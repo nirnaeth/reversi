@@ -8,6 +8,10 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
+				<string>icon-Small-50.png</string>
+				<string>icon-Small-50@2x.png</string>
+				<string>icon-Small.png</string>
+				<string>icon-Small@2x.png</string>
 				<string>icon.png</string>
 				<string>icon@2x.png</string>
 				<string>icon-72.png</string>
@@ -37,7 +41,7 @@
 	<key>CFBundleIconFile</key>
 	<string>icon.png</string>
 	<key>CFBundleIdentifier</key>
-	<string>fermo.*</string>
+	<string>fermo.reversi</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

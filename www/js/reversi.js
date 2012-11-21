@@ -83,6 +83,8 @@ var Reversi = function () {
     var sliding_width = menu.outerWidth() + 90;
     if (direction !== 'right') {
       sliding_width = -sliding_width;
+    } else {
+      sliding_width = sliding_width - left_base_value;
     }
     
     if (delay) {
@@ -267,6 +269,7 @@ var Reversi = function () {
       var result = 'win';
       if (playerOneCount < playerTwoCount) { result_string = 'Hai perso :('; result = 'lose' }
       $(selector).append(result_string);
+      $('#end_game').show();
       game.slideMenu('#end_game', 'left', 60);
       game.playSound("sounds/" + result + ".mp3");
     }

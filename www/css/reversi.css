@@ -40,8 +40,8 @@
 .toolbar,
 .switches,
 table {
-  width: 296px;
-  margin-left: 12px;
+  width: 280px;
+  margin-left: 20px;
 }
 
 .players {
@@ -115,11 +115,11 @@ table {
 
 #board,
 table {
-  height: 296px;
+  height: 280px;
 }
 
 #board {
-  padding-top: 38px;
+  padding-top: 56px;
   margin-bottom: 10px;
 }
 
@@ -129,18 +129,19 @@ table {
 }
 
 tr {
-  height: 37px;
+  height: 35px;
 }
 
 td {
-  width: 37px;
-  height: 37px;
+  width: 35px;
+  height: 35px;
 }
 
 td.p1 div,
 td.p2 div {
-  margin: 1px 0 0 1px;
-  height: 35px;
+  width: 33px;
+  height: 33px;
+  margin: 2px 0 0 1px;
 }
 
 td.allowed {
@@ -207,8 +208,8 @@ only screen and (min-device-pixel-ratio: 1.5) {
   td.p1 div,
   td.p2 div,
   td.allowed {
-    -webkit-background-size: 37px 37px;
-    background-size: 37px 37px;
+    -webkit-background-size: 35px 35px;
+    background-size: 35px 35px;
   }
   
   td.allowed {

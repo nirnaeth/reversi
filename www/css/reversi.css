@@ -39,7 +39,8 @@
 .players,
 .toolbar,
 .switches,
-table {
+table,
+form {
   width: 280px;
   margin-left: 20px;
 }

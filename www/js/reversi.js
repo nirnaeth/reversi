@@ -524,6 +524,10 @@ var Reversi = function () {
       drawBoardWithEventHandlers();
     };
 
+    var saveName = function() {
+      localStorage.name = $('#name').val();
+    };
+    
     // Menu effects
     $('#play_button').click(function() {
       game.slideMenu('#game_menu');
@@ -560,6 +564,11 @@ var Reversi = function () {
         game.music_option === 'on' ? soundtrack.play() : soundtrack.pause();
       });
 
+    $('#options #back_button').click(
+      function() {
+        $('#options form').submit(saveName);
+      });
+      
     drawBoardWithEventHandlers();
   };
 

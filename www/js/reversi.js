@@ -182,6 +182,46 @@ var Reversi = function () {
     return legalMoves;
   };
 
+  // RECORD HANDLING
+  // var shiftPosition = function(key, value, me, opponent) {
+  //   
+  //     if (value.score.me < me) {
+  //       var old_value = value;
+  //       var old_key = key;
+  //       
+  //       value.name = localStorage.name;
+  //       value.score.me = me;
+  //       value.score.opponent = opponent;
+  //       shiftPosition()
+  //       return value;
+  //     } else {
+  //       
+  //     }
+  //   }
+  // };
+  
+  var updateCharts = function(me, oppenent) {
+    if(localStorage.record == 'undefined') {
+      var obj = {
+        'first' : {
+          'name' : localStorage.name,
+          'score' : {
+            'me' : me,
+            'opponent' : opponent
+          }
+        }
+      }
+      localStorage.record = JSON.stringify(obj);
+    } else {
+      var record_inserted = false;
+      var chart = JSON.parse(localStorage.record);
+      $.each(chart, function(i, item) {
+        console.log(item);
+      });
+      localStorage.record = JSON.stringify(new_chart);
+    }
+  };
+  
   Reversi.prototype.getLegalMoves = function () {
     /// <summary>Find all legal moves where a piece is placed on board and turns opponent pieces
     /// if None are found - see if other player has options
@@ -267,6 +307,7 @@ var Reversi = function () {
       var selector = '#end_game #result';
       var result_string = 'Hai vinto!';
       var result = 'win';
+      updateChart(playerOneCount, playerTwoCount);
       if (playerOneCount < playerTwoCount) { result_string = 'Hai perso :('; result = 'lose' }
       $(selector).append(result_string);
       $('#end_game').show();
@@ -569,6 +610,11 @@ var Reversi = function () {
         $('#options form').submit(saveName);
       });
       
+    $('#record_button').click(function() {
+      var chart = JSON.parse(localStorage.record, function(key, value) {
+        
+      });
+    });
     drawBoardWithEventHandlers();
   };
 

@@ -3,16 +3,17 @@
   src: url('../fonts/Rumpelstiltskin.ttf');
 }
 
-#game,
-#options,
-#record {
-  
+section h2 {
+  font-size: 2em;
+  text-align: center;
 }
 
 #game.ui-body-c, 
 #game.ui-overlay-c,
 #options.ui-body-c,
 #options.ui-overlay-c,
+#record.ui-body-c,
+#record.ui-overlay-c,
 .ui-btn-up-a, 
 .ui-btn-hover-a, 
 .ui-btn-down-a {
@@ -35,14 +36,15 @@
 #options .ui-controlgroup-label {
   margin-top: 2.3%;
 }
-
-.players,
-.toolbar,
-.switches,
+.inner_standard,
 table,
-form {
+section h2 {
   width: 280px;
-  margin-left: 20px;
+  margin: 15px 0 0 20px;
+}
+
+table {
+  margin-top: 0;
 }
 
 .players {

@@ -50,6 +50,12 @@ var Reversi = function () {
     else {
       this.b = new Board();
     }
+    
+    if (localStorage.name == undefined || localStorage.name == '') {
+      localStorage.name = 'Giocatore 1';
+      
+    }
+    $('#options form #name').val(localStorage.name);
     this.currentPlayer = spec.currentPlayer || 1;
   };
 
@@ -200,8 +206,10 @@ var Reversi = function () {
   //   }
   // };
   
-  var updateCharts = function(me, oppenent) {
-    if(localStorage.record == 'undefined') {
+  var updateChart = function(me, oppenent) {
+    
+    if(localStorage.record == undefined) {
+    alert('pippo');
       var obj = {
         'first' : {
           'name' : localStorage.name,
@@ -215,11 +223,13 @@ var Reversi = function () {
     } else {
       var record_inserted = false;
       var chart = JSON.parse(localStorage.record);
+      
       $.each(chart, function(i, item) {
         console.log(item);
       });
       localStorage.record = JSON.stringify(new_chart);
     }
+    console.log(localStorage.record);
   };
   
   Reversi.prototype.getLegalMoves = function () {
@@ -307,8 +317,14 @@ var Reversi = function () {
       var selector = '#end_game #result';
       var result_string = 'Hai vinto!';
       var result = 'win';
-      updateChart(playerOneCount, playerTwoCount);
-      if (playerOneCount < playerTwoCount) { result_string = 'Hai perso :('; result = 'lose' }
+      
+      if (playerOneCount < playerTwoCount) { 
+        result_string = 'Hai perso :('; 
+        result = 'lose'; 
+      } else {
+        
+        updateChart(playerOneCount, playerTwoCount);
+      }
       $(selector).append(result_string);
       $('#end_game').show();
       game.slideMenu('#end_game', 'left', 60);
@@ -564,10 +580,6 @@ var Reversi = function () {
       opponentMove();
       drawBoardWithEventHandlers();
     };
-
-    var saveName = function() {
-      localStorage.name = $('#name').val();
-    };
     
     // Menu effects
     $('#play_button').click(function() {
@@ -605,16 +617,31 @@ var Reversi = function () {
         game.music_option === 'on' ? soundtrack.play() : soundtrack.pause();
       });
 
+    // $('#options form').submit(
+    //   function() {
+    //     var name = $("input[name='name']:text").val();
+    //     localStorage.name = name;
+    //     return false;
+    //   });
+    //   
     $('#options #back_button').click(
       function() {
-        $('#options form').submit(saveName);
+        var name = $("input[name='name']:text").val();
+        localStorage.name = name;
       });
       
-    $('#record_button').click(function() {
-      var chart = JSON.parse(localStorage.record, function(key, value) {
-        
+    $('#record_button').click(
+      function() {
+        if (localStorage.record != undefined) {
+          $('#chart').empty();
+          $('#chart').append('<ol></ol>');
+          var chart = JSON.parse(localStorage.record, function(key, value) {
+            var position = '<li>' + value.name + '\t ' + value.score.me + ' a ' + value.score.opponent + '</li>'
+            $('#record ol').append(position);
+            alert(position);
+          });
+        }
       });
-    });
     drawBoardWithEventHandlers();
   };
 

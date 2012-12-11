@@ -18,29 +18,31 @@
           <a href="#" data-role="button" data-theme="a" id="play_button">Gioca</a>
           <a href="http://www.fermoeditore.it" data-role="button" data-theme="a" target="_blank">Visita il sito</a>
           <a href="#options" data-role="button" data-theme="a" id="options_button" data-transition="slide">Opzioni</a>
-          <a href="#record" data-role="button" data-theme="a" id="record_button" data-transition="slide">Record</a>
+          <a href="#record" data-role="button" data-theme="a" id="record_button" data-transition="slide">Classifica</a>
         </nav>
       </div>
       <div id="pause_game">
         <nav data-role="content">
           <a href="#" data-role="button" data-theme="a" id="resume_button">Riprendi</a>
           <a href="#options" data-role="button" data-theme="a" id="options_button" data-transition="slide">Opzioni</a>
+          <a href="#record" data-role="button" data-theme="a" id="record_button" data-transition="slide">Classifica</a>
         </nav>
       </div>
       <div id="end_game">
         <div id="result">
         </div>
         <nav data-role="content">
+          <a href="#record" data-role="button" data-theme="a" id="record_button" data-transition="slide">Classifica</a>
           <a href="#" data-role="button" data-theme="a" id="replay_button">Gioca ancora</a>
         </nav>
       </div>
       <section id="board">
       </section>
-      <div class="toolbar">
+      <div class="toolbar inner_standard">
         <a href="#" id="pass_button" class="button_disabled" data-role="button" data-inline="true" data-theme="a" data-mini="true">Passa</a>
         <a href="#" id="pause_button" class="button_disabled" data-role="button" data-inline="true" data-theme="a" data-mini="true">Pausa</a>
       </div>
-      <div class="players">
+      <div class="players inner_standard">
         <div id="player_1">
           Giocatore 1
           <div class="score"></div>
@@ -56,7 +58,8 @@
     <!-- /GAME -->
     <!-- OPTIONS -->
     <section id="options" data-role="page">
-      <div class="switches">
+      <h2 class="inner_standard">Opzioni</h2>
+      <div class="switches inner_standard">
         <div data-role="fieldcontain" id="music_option">
           <fieldset data-role="controlgroup" data-type="horizontal">
             <legend>Musica</legend>
@@ -76,13 +79,13 @@
           </fieldset>
         </div>
       </div>
-      <form method="post">
+      <form method="post" action="#options" class="inner_standard">
         <div data-role="fieldcontain" id="name">
           <label for="name">Nome:</label>
           <input type="text" name="name" id="name" value="" />
         </div>
       </form>
-      <div class="toolbar">
+      <div class="toolbar inner_standard">
         <a href="#game" id="back_button" data-role="button" data-inline="true" data-theme="a" data-mini="true" data-rel="back">Indietro</a>
       </div>
     </section>
@@ -90,7 +93,11 @@
     
     <!-- RECORD PAGE -->
     <section id="record" data-role="page">
-      <div class="toolbar">
+      <h2 class="inner_standard">Classifica</h2>
+      <div id="chart" class="inner_standard">
+        <p>Nessuno in classifica al momento.</p>
+      </div>
+      <div class="toolbar inner_standard">
         <a href="#game" id="back_button" data-role="button" data-inline="true" data-theme="a" data-mini="true" data-rel="back">Indietro</a>
       </div>
     </section>

@@ -36,9 +36,9 @@ section h2 {
 #options .ui-controlgroup-label {
   margin-top: 2.3%;
 }
+
 .inner_standard,
-table,
-section h2 {
+table {
   width: 280px;
   margin: 15px 0 0 20px;
 }
@@ -110,6 +110,12 @@ table {
   -webkit-transform:rotate(-20deg);
   transform:rotate(-20deg);
   display: none;
+}
+
+
+#pause_game .inner_standard,
+#end_game .inner_standard {
+  margin-left: 0;
 }
 
 #game {

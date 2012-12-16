@@ -102,7 +102,7 @@ table {
   color: rgba(255, 0, 0, 1);
 }
 
-#game_menu,
+#main_menu,
 #pause_game,
 #end_game,
 #options,
@@ -110,7 +110,6 @@ table {
   background: url('../img/empty_base.png') 0 0 no-repeat;
 }
 
-#game_menu,
 #pause_game,
 #end_game {
   width: 280px;

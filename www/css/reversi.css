@@ -110,7 +110,6 @@ table {
   background: url('../img/empty_base.png') 0 0 no-repeat;
 }
 
-#pause_game,
 #end_game {
   width: 280px;
   height: 300px;
@@ -121,11 +120,6 @@ table {
   -webkit-transform:rotate(20deg);
   transform:rotate(20deg);
   box-shadow: 3px 3px 2px #000;
-}
-
-#pause_game {
-  z-index: 10;
-  left: -325px;  
 }
 
 #end_game {

@@ -25,10 +25,10 @@
     <!-- END MAIN MENU -->
     <!-- GAME -->
     <section id="game" data-role="page">
-      <div id="pause_game">
+      <div id="pause_game" data-role="popup" data-overlay-theme="a">
         <h2 class="inner_standard">Pausa</h2>
         <nav data-role="content">
-          <a href="#" data-role="button" data-theme="a" id="resume_button">Riprendi</a>
+          <a href="#" data-role="button" data-rel="back" data-theme="a" id="resume_button">Riprendi</a>
           <a href="#options" data-role="button" data-theme="a" id="options_button" >Opzioni</a>
           <a href="#record" data-role="button" data-theme="a" id="record_button" >Classifica</a>
         </nav>
@@ -57,7 +57,7 @@
       </section>
       <div class="toolbar inner_standard">
         <a href="#" id="pass_button" class="button_disabled" data-role="button" data-inline="true" data-theme="a" data-mini="true">Passa</a>
-        <a href="#" id="pause_button" class="button_disabled float_right" data-role="button" data-inline="true" data-theme="a" data-mini="true">Pausa</a>
+        <a href="#pause_game" id="pause_button" class="button_disabled float_right" data-role="button" data-inline="true" data-theme="a" data-mini="true" data-rel="popup" data-position-to="#board">Pausa</a>
       </div>
       
     </section>

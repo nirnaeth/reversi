@@ -600,21 +600,15 @@ var Reversi = function () {
     
     // Menu effects
     $('#play_button').click(function() {
-      game.slideMenu('#game_menu');
       $('#pause_button').removeClass('button_disabled');
     });
     
     $('#resume_button').click(function() {
-      game.slideMenu('#pause_game');
       $('#pause_button').removeClass('button_disabled');
     });
     
     $('#pause_button').click(function() {
-      if (!$(this).hasClass('button_disabled')) {
-        game.slideMenu('#pause_game');
-        $(this).removeClass('button_disabled');
-      }
-      $(this).addClass('button_disabled');
+      $(this).toggleClass('button_disabled');
     });
     
     $("#replay_button").click(

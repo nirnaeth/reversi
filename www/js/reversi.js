@@ -206,28 +206,42 @@ var Reversi = function () {
   //   }
   // };
   
-  var updateChart = function(me, oppenent) {
+  var updateChart = function(my_score, opponent_score) {
     
     if(localStorage.record == undefined) {
-    alert('pippo');
       var obj = {
-        'first' : {
+        '1' : {
           'name' : localStorage.name,
           'score' : {
-            'me' : me,
-            'opponent' : opponent
+            'me' : my_score,
+            'opponent' : opponent_score
           }
         }
       }
-      localStorage.record = JSON.stringify(obj);
+      
+      localStorage.setItem('record', JSON.stringify(obj));
     } else {
       var record_inserted = false;
       var chart = JSON.parse(localStorage.record);
-      
+      var position = chart.length;
+      var obj = {
+        position : {
+          'name' : localStorage.name,
+          'score' : {
+            'me' : my_score,
+            'opponent' : opponent_score
+          }
+        }
+      }
+      console.log(chart);
+      console.log(obj);
+      chart.push(obj);
+      console.log(chart);
       $.each(chart, function(i, item) {
         console.log(item);
       });
-      localStorage.record = JSON.stringify(new_chart);
+      
+      localStorage.record = JSON.stringify(chart);
     }
     console.log(localStorage.record);
   };
@@ -315,6 +329,7 @@ var Reversi = function () {
     if (allowedMoves.length === 1 && allowedMoves[0].isGameOver()) {
       state = "Game over";
       var selector = '#end_game #result';
+      $(selector).empty();
       var result_string = 'Hai vinto!';
       var result = 'win';
       
@@ -325,12 +340,14 @@ var Reversi = function () {
         
         updateChart(playerOneCount, playerTwoCount);
       }
+      
       $(selector).append(result_string);
+      $(selector).append('<br />' + playerOneCount + ' - ' + playerTwoCount);
       $('#end_game').show();
       game.slideMenu('#end_game', 'left', 60);
       game.playSound("sounds/" + result + ".mp3");
     }
-    
+    $('#player_1_name').html(localStorage.name);
     $('#player_1 .score').html("").append(playerOneCount);
     $('#player_2 .score').html("").append(playerTwoCount);
     

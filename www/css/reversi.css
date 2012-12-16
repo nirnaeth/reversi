@@ -1,6 +1,10 @@
 @font-face {
-  font-family: 'Rumpelstiltskin';
-  src: url('../fonts/Rumpelstiltskin.ttf');
+  font-family: 'Impact';
+  src: url('../fonts/Impact.ttf');
+}
+
+body {
+  text-transform: uppercase;
 }
 
 section h2 {
@@ -17,13 +21,21 @@ section h2 {
 .ui-btn-up-a, 
 .ui-btn-hover-a, 
 .ui-btn-down-a {
- font-family: 'Rumpelstiltskin', Arial, sans-serif;
+ font-family: 'Impact', Arial, sans-serif;
 }
 
 .ui-btn-up-a, 
 .ui-btn-hover-a, 
 .ui-btn-down-a {
-  font-weight: 200;
+  font-weight: 100;
+}
+
+.float_right {
+  float: right;
+}
+
+.float_left {
+  float: left;
 }
 
 #game.ui-body-c, 
@@ -49,8 +61,9 @@ table {
 
 .players {
   color: #000000;
-  font-size: 1.5em;
+  font-size: 1em;
   padding-left: 0;
+  margin-top: 16px;
 }
 
 .players > div {
@@ -70,6 +83,14 @@ table {
 
 .player1 {
   color: rgba(0, 0, 0, 1);
+}
+
+#player_1 .score {
+  margin-left: 10px;
+}
+
+#player_2 .score {
+  margin-right: 10px;
 }
 
 .player2 {
@@ -128,7 +149,7 @@ table {
 }
 
 #board {
-  padding-top: 56px;
+  padding-top: 40px;
   margin-bottom: 10px;
 }
 

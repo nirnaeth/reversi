@@ -11,22 +11,26 @@
     
   </head>
   <body>
-    <!-- GAME -->
-    <section id="game" data-role="page">
+    <!-- MAIN MENU -->
+    <section id="main_menu" data-role="page">
       <div id="game_menu">
         <nav data-role="content">
-          <a href="#" data-role="button" data-theme="a" id="play_button">Gioca</a>
+          <a href="#game" data-role="button" data-theme="a" id="play_button">Gioca</a>
           <a href="http://www.fermoeditore.it" data-role="button" data-theme="a" target="_blank">Visita il sito</a>
-          <a href="#options" data-role="button" data-theme="a" id="options_button" data-transition="slide">Opzioni</a>
-          <a href="#record" data-role="button" data-theme="a" id="record_button" data-transition="slide">Classifica</a>
+          <a href="#options" data-role="button" data-theme="a" id="options_button" >Opzioni</a>
+          <a href="#record" data-role="button" data-theme="a" id="record_button" >Classifica</a>
         </nav>
       </div>
+    </section>
+    <!-- END MAIN MENU -->
+    <!-- GAME -->
+    <section id="game" data-role="page">
       <div id="pause_game">
         <h2 class="inner_standard">Pausa</h2>
         <nav data-role="content">
           <a href="#" data-role="button" data-theme="a" id="resume_button">Riprendi</a>
-          <a href="#options" data-role="button" data-theme="a" id="options_button" data-transition="slide">Opzioni</a>
-          <a href="#record" data-role="button" data-theme="a" id="record_button" data-transition="slide">Classifica</a>
+          <a href="#options" data-role="button" data-theme="a" id="options_button" >Opzioni</a>
+          <a href="#record" data-role="button" data-theme="a" id="record_button" >Classifica</a>
         </nav>
       </div>
       <div id="end_game">
@@ -34,7 +38,7 @@
         <div id="result">
         </div>
         <nav data-role="content">
-          <a href="#record" data-role="button" data-theme="a" id="record_button" data-transition="slide">Classifica</a>
+          <a href="#record" data-role="button" data-theme="a" id="record_button">Classifica</a>
           <a href="#" data-role="button" data-theme="a" id="replay_button">Gioca ancora</a>
         </nav>
       </div>

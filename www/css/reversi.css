@@ -191,6 +191,10 @@ td.p1 div {
   background: url('../img/nera.png') 0 0 no-repeat;
 }
 
+input[type="text"] {
+  background-color: #ffffff;
+}
+
 /* clearfix */
 
 /**

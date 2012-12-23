@@ -72,10 +72,9 @@ table {
 }
 
 .players > div {
-  padding-top: 2%;
-  float: left;
-  width: 50%;
   text-align: center;
+  width: 29%;
+  margin-top: -3.3%;
 }
 
 #buttons {
@@ -88,14 +87,6 @@ table {
 
 .player1 {
   color: rgba(0, 0, 0, 1);
-}
-
-#player_1 .score {
-  margin-left: 10px;
-}
-
-#player_2 .score {
-  margin-right: 10px;
 }
 
 .player2 {

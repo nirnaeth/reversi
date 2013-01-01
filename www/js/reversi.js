@@ -632,10 +632,11 @@ var Reversi = function () {
         if (localStorage.record != undefined) {
           $('#chart').empty();
           $('#chart').append('<ol></ol>');
-          var chart = JSON.parse(localStorage.record, function(key, value) {
-            var position = '<li>' + value.name + '\t ' + value.score.me + ' a ' + value.score.opponent + '</li>'
+          var chart = JSON.parse(localStorage.record);
+          chart.forEach(function(item) {
+            
+            var position = '<li>' + item.name + ' - ' + item.score.me + ' a ' + item.score.opponent + '</li>'
             $('#record ol').append(position);
-            alert(position);
           });
         }
       });

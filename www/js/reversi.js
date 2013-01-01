@@ -207,43 +207,29 @@ var Reversi = function () {
   // };
   
   var updateChart = function(my_score, opponent_score) {
-    
-    if(localStorage.record == undefined) {
-      var obj = {
-        '1' : {
-          'name' : localStorage.name,
-          'score' : {
-            'me' : my_score,
-            'opponent' : opponent_score
-          }
-        }
+    var obj = {
+      'name' : localStorage.name,
+      'score' : {
+        'me' : my_score,
+        'opponent' : opponent_score
       }
-      
-      localStorage.setItem('record', JSON.stringify(obj));
-    } else {
-      var record_inserted = false;
-      var chart = JSON.parse(localStorage.record);
-      var position = chart.length;
-      var obj = {
-        position : {
-          'name' : localStorage.name,
-          'score' : {
-            'me' : my_score,
-            'opponent' : opponent_score
-          }
-        }
-      }
-      console.log(chart);
-      console.log(obj);
-      chart.push(obj);
-      console.log(chart);
-      $.each(chart, function(i, item) {
-        console.log(item);
-      });
-      
-      localStorage.record = JSON.stringify(chart);
     }
-    console.log(localStorage.record);
+    
+    if (localStorage.record == undefined) {
+      var chart = [];      
+    } else {
+      //var record_inserted = false;
+      var chart = JSON.parse(localStorage.record);
+      //var position = chart.length;
+      // chart.sort(function(a, b) { 
+      //   return a.score.me - b.score.me
+      // });
+      // 
+    }
+
+    chart.push(obj);
+
+    localStorage.setItem('record', JSON.stringify(chart));
   };
   
   Reversi.prototype.getLegalMoves = function () {

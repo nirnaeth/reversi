@@ -51,11 +51,11 @@ var Reversi = function () {
       this.b = new Board();
     }
     
-    if (localStorage.name == undefined || localStorage.name == '') {
-      localStorage.name = 'Giocatore 1';
-      
+    if (window.localStorage.name == undefined || window.localStorage.name == '') {
+      window.localStorage.name = 'Giocatore 1';
     }
-    $('#options form #name').val(localStorage.name);
+    
+    $('#options form #name').val(window.localStorage.name);
     this.currentPlayer = spec.currentPlayer || 1;
   };
 
@@ -188,32 +188,48 @@ var Reversi = function () {
     return legalMoves;
   };
   
+  var refreshLocalStorage = function() {
+    if (window.localStorage.record != undefined) {
+      $('#chart').empty();
+      $('#chart').append('<ol></ol>');
+      var chart = JSON.parse(window.localStorage.getItem('record'));
+      chart.forEach(function(item) {            
+        var position = '<li>' + item.name + ' - ' + item.score.me + ' a ' + item.score.opponent + '</li>'
+        $('#record ol').append(position);
+      });
+    }
+    
+    $('#player_1_name').html(window.localStorage.getItem('name'));
+  };
+
+
   var updateChart = function(my_score, opponent_score) {
     var obj = {
-      'name' : localStorage.name,
+      'name' : window.localStorage.name,
       'score' : {
         'me' : my_score,
         'opponent' : opponent_score
       }
     }
     
-    if (localStorage.record == undefined) {
+    if (window.localStorage.record == undefined) {
       var chart = [];      
     } else {
-      //var record_inserted = false;
-      var chart = JSON.parse(localStorage.record);      
+      var chart = JSON.parse(window.localStorage.record);      
     }
 
     chart.push(obj);
     
-    var last = chart.pop();
+    var last = chart[chart.length - 1];
     if (chart.length > 1 && my_score > last.score.me) {
       chart.sort(function(a, b) { 
-        return b.score.me - a.score.me
+        return b.score.me - a.score.me;
       });
     }
 
-    localStorage.setItem('record', JSON.stringify(chart));
+    window.localStorage.setItem('record', JSON.stringify(chart));
+    
+    refreshLocalStorage();
   };
   
   Reversi.prototype.getLegalMoves = function () {
@@ -234,6 +250,7 @@ var Reversi = function () {
       } else {
         legalMoves.push(passMove());
       }
+
     }
 
     return legalMoves;
@@ -312,11 +329,11 @@ var Reversi = function () {
       
       $(selector).append(result_string);
       $(selector).append('<br />' + playerOneCount + ' - ' + playerTwoCount);
-      $('#end_game').show();
-      game.slideMenu('#end_game', 'left', 60);
+      
+      $.mobile.changePage($('#end_game'));
       game.playSound("sounds/" + result + ".mp3");
     }
-    $('#player_1_name').html(localStorage.name);
+    $('#player_1_name').html(window.localStorage.name);
     $('#player_1 .score').html("").append(playerOneCount);
     $('#player_2 .score').html("").append(playerTwoCount);
     
@@ -583,7 +600,7 @@ var Reversi = function () {
     $("#replay_button").click(
        function () {
          runGame();
-         game.slideMenu('#end_game', 'right');
+         $.mobile.changePage($('#game'));
        });
     
     $('#sounds_option input').click(
@@ -596,32 +613,19 @@ var Reversi = function () {
         game.music_option = $(this).val();
         game.music_option === 'on' ? soundtrack.play() : soundtrack.pause();
       });
-
-    // $('#options form').submit(
-    //   function() {
-    //     var name = $("input[name='name']:text").val();
-    //     localStorage.name = name;
-    //     return false;
-    //   });
-    //   
+    
+    $(document).bind('storage', function (e) {
+      alert('pluto');
+      refreshLocalStorage();
+      e.preventDefault;
+    });
+    
     $('#options #back_button').click(
       function() {
         var name = $("input[name='name']:text").val();
-        localStorage.name = name;
+        window.localStorage.name = name;
       });
       
-    $('#record_button').click(
-      function() {
-        if (localStorage.record != undefined) {
-          $('#chart').empty();
-          $('#chart').append('<ol></ol>');
-          var chart = JSON.parse(localStorage.record);
-          chart.forEach(function(item) {            
-            var position = '<li>' + item.name + ' - ' + item.score.me + ' a ' + item.score.opponent + '</li>'
-            $('#record ol').append(position);
-          });
-        }
-      });
     drawBoardWithEventHandlers();
   };
 

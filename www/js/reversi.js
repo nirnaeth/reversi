@@ -187,24 +187,6 @@ var Reversi = function () {
     }
     return legalMoves;
   };
-
-  // RECORD HANDLING
-  // var shiftPosition = function(key, value, me, opponent) {
-  //   
-  //     if (value.score.me < me) {
-  //       var old_value = value;
-  //       var old_key = key;
-  //       
-  //       value.name = localStorage.name;
-  //       value.score.me = me;
-  //       value.score.opponent = opponent;
-  //       shiftPosition()
-  //       return value;
-  //     } else {
-  //       
-  //     }
-  //   }
-  // };
   
   var updateChart = function(my_score, opponent_score) {
     var obj = {
@@ -219,15 +201,17 @@ var Reversi = function () {
       var chart = [];      
     } else {
       //var record_inserted = false;
-      var chart = JSON.parse(localStorage.record);
-      //var position = chart.length;
-      // chart.sort(function(a, b) { 
-      //   return a.score.me - b.score.me
-      // });
-      // 
+      var chart = JSON.parse(localStorage.record);      
     }
 
     chart.push(obj);
+    
+    var last = chart.pop();
+    if (chart.length > 1 && my_score > last.score.me) {
+      chart.sort(function(a, b) { 
+        return b.score.me - a.score.me
+      });
+    }
 
     localStorage.setItem('record', JSON.stringify(chart));
   };
@@ -323,7 +307,6 @@ var Reversi = function () {
         result_string = 'Hai perso :('; 
         result = 'lose'; 
       } else {
-        
         updateChart(playerOneCount, playerTwoCount);
       }
       
@@ -633,8 +616,7 @@ var Reversi = function () {
           $('#chart').empty();
           $('#chart').append('<ol></ol>');
           var chart = JSON.parse(localStorage.record);
-          chart.forEach(function(item) {
-            
+          chart.forEach(function(item) {            
             var position = '<li>' + item.name + ' - ' + item.score.me + ' a ' + item.score.opponent + '</li>'
             $('#record ol').append(position);
           });

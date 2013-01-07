@@ -1,4 +1,8 @@
 /*jslint vars: true, white: true, plusplus: true, maxerr: 50, indent: 4 */
+$(document).bind('storage', function (e) {
+  refreshLocalStorage();
+  e.preventDefault;
+});
 
 var Reversi = function () {
   "use strict";
@@ -333,7 +337,7 @@ var Reversi = function () {
       $.mobile.changePage($('#end_game'));
       game.playSound("sounds/" + result + ".mp3");
     }
-    $('#player_1_name').html(window.localStorage.name);
+    $('#player_1_name').html(window.localStorage.getItem('name'));
     $('#player_1 .score').html("").append(playerOneCount);
     $('#player_2 .score').html("").append(playerTwoCount);
     
@@ -614,16 +618,11 @@ var Reversi = function () {
         game.music_option === 'on' ? soundtrack.play() : soundtrack.pause();
       });
     
-    $(document).bind('storage', function (e) {
-      alert('pluto');
-      refreshLocalStorage();
-      e.preventDefault;
-    });
-    
     $('#options #back_button').click(
       function() {
         var name = $("input[name='name']:text").val();
         window.localStorage.name = name;
+        $('#player_1_name').html(window.localStorage.getItem('name'));
       });
       
     drawBoardWithEventHandlers();

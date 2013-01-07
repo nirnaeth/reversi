@@ -337,7 +337,7 @@ var Reversi = function () {
       $.mobile.changePage($('#end_game'));
       game.playSound("sounds/" + result + ".mp3");
     }
-    $('#player_1_name').html(window.localStorage.getItem('name'));
+    
     $('#player_1 .score').html("").append(playerOneCount);
     $('#player_2 .score').html("").append(playerTwoCount);
     

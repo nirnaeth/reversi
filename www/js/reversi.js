@@ -230,7 +230,11 @@ var Reversi = function () {
         return b.score.me - a.score.me;
       });
     }
-
+    
+    while(chart.length > 2) {
+      console.log(chart);
+    }
+    
     window.localStorage.setItem('record', JSON.stringify(chart));
     
     refreshLocalStorage();
@@ -624,7 +628,12 @@ var Reversi = function () {
         window.localStorage.name = name;
         $('#player_1_name').html(window.localStorage.getItem('name'));
       });
-      
+    
+    $('#record_button').live('click',
+      function() {
+        refreshLocalStorage();
+      });
+          
     drawBoardWithEventHandlers();
   };
 

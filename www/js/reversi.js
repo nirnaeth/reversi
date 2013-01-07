@@ -589,17 +589,17 @@ var Reversi = function () {
     };
     
     // Menu effects
-    $('#play_button').click(function() {
-      $('#pause_button').removeClass('button_disabled');
-    });
+    // $('#play_button, #resume_button').click(function() {
+    //   $('#pause_button').removeClass('button_disabled');
+    // });
     
-    $('#resume_button').click(function() {
-      $('#pause_button').removeClass('button_disabled');
-    });
-    
-    $('#pause_button').click(function() {
-      $(this).toggleClass('button_disabled');
-    });
+    // $('#resume_button').click(function() {
+    //   $('#pause_button').removeClass('button_disabled');
+    // });
+    // 
+    // $('#pause_button').click(function() {
+    //   $(this).addClass('button_disabled');
+    // });
     
     $("#replay_button").click(
        function () {

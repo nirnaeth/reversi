@@ -63,7 +63,7 @@ var Reversi = function () {
     this.currentPlayer = spec.currentPlayer || 1;
   };
 
-  Reversi.prototype.setup = function (is_replay) {
+  Reversi.prototype.setup = function () {
     this.b = new Board();
     this.b.setTypeAtPosition(new Position(3, 3), 1);
     this.b.setTypeAtPosition(new Position(4, 4), 1);
@@ -71,24 +71,12 @@ var Reversi = function () {
     this.b.setTypeAtPosition(new Position(4, 3), 2);
     this.currentPlayer = 1;
     
-    is_replay = typeof is_replay !== 'undefined' ? is_replay : false;
-    
-    if (!is_replay) {
-      this.sounds_option = 'on';
-      this.music_option = 'on';
-    }
   };
   
   Reversi.prototype.playSound = function(path) {
     if (this.sounds_option === 'on') {
       var audio = new Audio(path);
-      if (this.music_option === 'on') {
-        soundtrack.pause();
-      }
       audio.play();
-      if (this.music_option === 'on') {
-        soundtrack.play();
-      }
     }
   }
 
@@ -525,19 +513,12 @@ var Reversi = function () {
     return value;
   };
 
-  var runGame = function (is_replay) {
+  var runGame = function () {
     /// <summary>Run the game</summary>
     var game = new Reversi();
     
-    is_replay = typeof is_replay !== 'undefined' ? is_replay : false;
+    game.setup();
     
-    game.setup(is_replay);
-    
-    if (game.music_option === 'on') {
-      soundtrack.loop = true;
-      soundtrack.play();
-    }
-
     var opponentMove = function () {
       /// <summary>Make a computer move</summary>
       /// <returns type="">Returns the opponent move</returns>
@@ -621,7 +602,7 @@ var Reversi = function () {
     
     $("#replay_button").click(
        function () {
-         runGame(true);
+         runGame();
          $.mobile.changePage($('#game'));
        });
     
@@ -630,12 +611,6 @@ var Reversi = function () {
         game.sounds_option = $(this).val();
       });
 
-    $('#music_option input').click(
-      function() {
-        game.music_option = $(this).val();
-        game.music_option === 'on' ? soundtrack.play() : soundtrack.pause();
-      });
-    
     $('#options #back_button').click(
       function() {
         var name = $("input[name='name']:text").val();

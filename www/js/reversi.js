@@ -242,8 +242,8 @@ var Reversi = function () {
       });
     }
     
-    if (chart.length > 4) {
-      chart.splice(3, 1);
+    if (chart.length > 10) {
+      chart.splice(9, 1);
     }
     
     window.localStorage.setItem('record', JSON.stringify(chart));

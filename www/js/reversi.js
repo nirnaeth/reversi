@@ -63,15 +63,20 @@ var Reversi = function () {
     this.currentPlayer = spec.currentPlayer || 1;
   };
 
-  Reversi.prototype.setup = function () {
+  Reversi.prototype.setup = function (is_replay) {
     this.b = new Board();
     this.b.setTypeAtPosition(new Position(3, 3), 1);
     this.b.setTypeAtPosition(new Position(4, 4), 1);
     this.b.setTypeAtPosition(new Position(3, 4), 2);
     this.b.setTypeAtPosition(new Position(4, 3), 2);
     this.currentPlayer = 1;
-    this.sounds_option = 'on';
-    this.music_option = 'on';
+    
+    is_replay = typeof is_replay !== 'undefined' ? is_replay : false;
+    
+    if (!is_replay) {
+      this.sounds_option = 'on';
+      this.music_option = 'on';
+    }
   };
   
   Reversi.prototype.playSound = function(path) {
@@ -197,6 +202,11 @@ var Reversi = function () {
       $('#chart').empty();
       $('#chart').append('<ol></ol>');
       var chart = JSON.parse(window.localStorage.getItem('record'));
+      
+      chart.sort(function(a, b) { 
+        return b.score.me - a.score.me;
+      });
+      
       chart.forEach(function(item) {            
         var position = '<li>' + item.name + ' - ' + item.score.me + ' a ' + item.score.opponent + '</li>'
         $('#record ol').append(position);
@@ -219,20 +229,21 @@ var Reversi = function () {
     if (window.localStorage.record == undefined) {
       var chart = [];      
     } else {
-      var chart = JSON.parse(window.localStorage.record);      
+      var chart = JSON.parse(window.localStorage.record);
     }
 
     chart.push(obj);
     
     var last = chart[chart.length - 1];
+    
     if (chart.length > 1 && my_score > last.score.me) {
       chart.sort(function(a, b) { 
         return b.score.me - a.score.me;
       });
     }
     
-    while(chart.length > 2) {
-      console.log(chart);
+    if (chart.length > 4) {
+      chart.splice(3, 1);
     }
     
     window.localStorage.setItem('record', JSON.stringify(chart));
@@ -514,10 +525,13 @@ var Reversi = function () {
     return value;
   };
 
-  var runGame = function () {
+  var runGame = function (is_replay) {
     /// <summary>Run the game</summary>
     var game = new Reversi();
-    game.setup();
+    
+    is_replay = typeof is_replay !== 'undefined' ? is_replay : false;
+    
+    game.setup(is_replay);
     
     if (game.music_option === 'on') {
       soundtrack.loop = true;
@@ -607,7 +621,7 @@ var Reversi = function () {
     
     $("#replay_button").click(
        function () {
-         runGame();
+         runGame(true);
          $.mobile.changePage($('#game'));
        });
     

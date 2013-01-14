@@ -6,7 +6,6 @@ $(document).bind('storage', function (e) {
 
 var Reversi = function () {
   "use strict";
-  var soundtrack = new Audio("sounds/soundtrack.mp3");
   
   var passMove = function () {
     var that = {};
@@ -74,7 +73,7 @@ var Reversi = function () {
   };
   
   Reversi.prototype.playSound = function(path) {
-    if (this.sounds_option === 'on') {
+    if (this.sounds_option === 'on' || this.sounds_option === undefined) {
       var audio = new Audio(path);
       audio.play();
     }
@@ -177,7 +176,7 @@ var Reversi = function () {
       });
       
       chart.forEach(function(item) {            
-        var position = '<li>' + item.name + ' - ' + item.score.me + ' a ' + item.score.opponent + '</li>'
+        var position = '<li>' + item.name + ' <span class="float_right">' + item.score.me + ' a ' + item.score.opponent + '</span></li>'
         $('#record ol').append(position);
       });
     }
@@ -305,7 +304,8 @@ var Reversi = function () {
       state = "Game over";
       var selector = '#end_game #result';
       $(selector).empty();
-      var result_string = 'Hai vinto!';
+      var result_string = '<div class="inner_standard">';
+      result_string = 'Hai vinto!';
       var result = 'win';
       
       if (playerOneCount < playerTwoCount) { 
@@ -316,7 +316,7 @@ var Reversi = function () {
       }
       
       $(selector).append(result_string);
-      $(selector).append('<br />' + playerOneCount + ' - ' + playerTwoCount);
+      $(selector).append('<br />' + playerOneCount + ' - ' + playerTwoCount + '</div>');
       
       $.mobile.changePage($('#end_game'));
       game.playSound("sounds/" + result + ".mp3");

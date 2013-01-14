@@ -79,25 +79,6 @@ var Reversi = function () {
       audio.play();
     }
   }
-
-  Reversi.prototype.slideMenu = function(selector, direction, delay) {
-    var menu = $(selector);
-    var left_base_value = -10;
-    var sliding_width = menu.outerWidth() + 90;
-    if (direction !== 'right') {
-      sliding_width = -sliding_width;
-    } else {
-      sliding_width = sliding_width - left_base_value;
-    }
-    
-    if (delay) {
-      menu.delay(delay).animate({ left: parseInt(menu.css('left')) == left_base_value ? sliding_width : left_base_value });
-    } else {
-      menu.animate({ left: parseInt(menu.css('left')) == left_base_value ? sliding_width : left_base_value });
-    }
-    
-    this.playSound('sounds/slide_menu.mp3');
-  }
   
   Reversi.prototype.getBoard = function () { return this.b; };
   Reversi.prototype.getCurrentPlayer = function () { return this.currentPlayer; };

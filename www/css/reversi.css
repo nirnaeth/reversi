@@ -101,6 +101,12 @@ table {
   background: url('../img/empty_base.png') 0 0 no-repeat;
 }
 
+#record ol {
+  list-style: decimal;
+  width: 70%;
+  margin: 0 auto;
+}
+
 /* #end_game {
   width: 280px;
   height: 300px;

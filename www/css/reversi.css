@@ -177,6 +177,7 @@ td.p1 div,
 td.p2 div {
   width: 35px;
   height: 35px;
+  /* margin: 2px 0 0 1px; */
 }
 
 td.allowed {

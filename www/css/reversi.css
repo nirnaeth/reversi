@@ -276,6 +276,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
 }
 
+
 @media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
   #game,
   #game_menu,
@@ -285,8 +286,8 @@ only screen and (min-device-pixel-ratio: 1.5) {
   #record {
     -webkit-background-size: 320px 568px;
     background-size: 320px 568px;
-  }
-
+  }  
+  
   #game {
     background: url('../img/base_reversi_uno@5.png') 0 0 no-repeat;
   }

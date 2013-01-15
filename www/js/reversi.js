@@ -127,7 +127,7 @@ var Reversi = function () {
     newGame.makeMove(move);
     return newGame;
   };
-
+    
   Reversi.prototype.makeMove = function (positionMove) {
     var index;
     if (positionMove.isPassMove()) {
@@ -140,10 +140,11 @@ var Reversi = function () {
 
     var turnList = getTurnedPieces(this.b, position, this.currentPlayer);
     if (turnList.length === 0) { throw "Illegal move"; }
-
+    
     for (index = 0; index < turnList.length; index++) {
       this.b.setTypeAtPosition(turnList[index], this.currentPlayer);
     }
+    
     this.b.setTypeAtPosition(position, this.currentPlayer);
     this.currentPlayer = otherPlayer(this.currentPlayer);
   };
@@ -528,6 +529,7 @@ var Reversi = function () {
         }
         //addMoveToList(game.getCurrentPlayer(), bestMove);
         game.makeMove(bestMove);
+        game.playSound('sounds/piece.mp3');
         return bestMove;
       }
     };
@@ -567,19 +569,6 @@ var Reversi = function () {
       opponentMove();
       drawBoardWithEventHandlers();
     };
-    
-    // Menu effects
-    // $('#play_button, #resume_button').click(function() {
-    //   $('#pause_button').removeClass('button_disabled');
-    // });
-    
-    // $('#resume_button').click(function() {
-    //   $('#pause_button').removeClass('button_disabled');
-    // });
-    // 
-    // $('#pause_button').click(function() {
-    //   $(this).addClass('button_disabled');
-    // });
     
     $("#replay_button").click(
        function () {

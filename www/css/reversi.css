@@ -214,8 +214,8 @@ only screen and (min-device-pixel-ratio: 1.5) {
   #pause_game,
   #options,
   #record {
-    -webkit-background-size: 320px 568px;
-    background-size: 320px 568px;
+    -webkit-background-size: 320px 480px;
+    background-size: 320px 480px;
   }
   
   #game {

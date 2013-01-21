@@ -71,6 +71,10 @@ table {
   margin-top: 16px;
 }
 
+#player_2 {
+  color: #D01B2B;
+}
+
 .players > div {
   text-align: center;
   width: 29%;

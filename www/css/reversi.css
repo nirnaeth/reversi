@@ -81,7 +81,7 @@ table {
   float: left;
 }
 
-.button_disabled {
+.ui-btn-up-a.button_disabled {
   background: rgba(173, 173, 173, 0.7);
 }
 
@@ -182,6 +182,15 @@ td.p1 div {
 
 input[type="text"] {
   background-color: #ffffff;
+}
+
+.ui-btn-up-a {
+  background: -moz-linear-gradient(left, #a90329 0%, #8f0222 44%, #6d0019 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, #a90329 0%,#8f0222 44%,#6d0019 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, #a90329 0%,#8f0222 44%,#6d0019 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, #a90329 0%,#8f0222 44%,#6d0019 100%); /* IE10+ */
+  background: linear-gradient(to right, #a90329 0%,#8f0222 44%,#6d0019 100%); /* W3C */
 }
 
 /* clearfix */

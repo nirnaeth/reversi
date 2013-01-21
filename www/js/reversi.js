@@ -58,7 +58,8 @@ var Reversi = function () {
       window.localStorage.name = 'Giocatore 1';
     }
     
-    $('#options form #name').val(window.localStorage.name);
+    $('#name').val(window.localStorage.name);
+    $('#name_field').hide();
     this.currentPlayer = spec.currentPlayer || 1;
   };
 
@@ -581,18 +582,32 @@ var Reversi = function () {
         game.sounds_option = $(this).val();
       });
 
-    $('#options #back_button').click(
-      function() {
-        var name = $("input[name='name']:text").val();
-        window.localStorage.name = name;
-        $('#player_1_name').html(window.localStorage.getItem('name'));
-      });
+    // $('#options #back_button').click(
+    //   function() {
+    //     var name = $("input[name='name']:text").val();
+    //     window.localStorage.name = name;
+    //     $('#player_1_name').html(window.localStorage.getItem('name'));
+    //   });
     
     $('#record_button').live('click',
       function() {
         refreshLocalStorage();
       });
-          
+
+    $('#play_button').click(
+      function() {
+        $('#name_field').show();
+      });
+      
+    $('#start_button').live('click', 
+      function() {
+        var name = $("input[name='name']:text").val();        
+        runGame();
+        window.localStorage.setItem('name', name);
+        $('#player_1_name').html(window.localStorage.getItem('name'));
+        $('#name_field').hide();
+      });
+      
     drawBoardWithEventHandlers();
   };
 

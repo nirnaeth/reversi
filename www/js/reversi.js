@@ -54,12 +54,15 @@ var Reversi = function () {
       this.b = new Board();
     }
     
+    // Use custom player name
     if (window.localStorage.name == undefined || window.localStorage.name == '') {
       window.localStorage.name = 'Giocatore 1';
     }
     
     $('#name').val(window.localStorage.name);
     $('#name_field').hide();
+    
+    // Which player is the current one
     this.currentPlayer = spec.currentPlayer || 1;
   };
 
@@ -70,7 +73,6 @@ var Reversi = function () {
     this.b.setTypeAtPosition(new Position(3, 4), 2);
     this.b.setTypeAtPosition(new Position(4, 3), 2);
     this.currentPlayer = 1;
-    
   };
   
   Reversi.prototype.playSound = function(path) {

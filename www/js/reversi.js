@@ -579,7 +579,7 @@ var Reversi = function () {
          $.mobile.changePage($('#game'));
        });
     
-    $('#sounds_option input').click(
+    $('#sounds_option').change(
       function() {
         game.sounds_option = $(this).val();
       });

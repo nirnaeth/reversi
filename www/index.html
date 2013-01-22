@@ -38,6 +38,13 @@
           <a href="#" data-role="button" data-rel="back" data-theme="a" id="resume_button">Riprendi</a>
           <a href="#record" data-role="button" data-theme="a" id="record_button" >Classifica</a>
           <a href="#main_menu" data-role="button" data-theme="a" id="menu_button" >Torna al menu</a>
+          <div class="switches">
+            <label for="sounds_option">Suoni</label>
+            <select name="sounds_option" id="sounds_option" data-role="slider" data-mini="true">
+              <option id="sounds_off" value="off">Off</option>
+              <option id="sounds_on" value="on" selected="selected">On</option>
+            </select>
+          </div>
         </nav>
       </div>
       <div class="players inner_standard">
@@ -55,7 +62,7 @@
       </section>
       <div class="toolbar inner_standard">
         <a href="#" id="pass_button" class="button_disabled" data-role="button" data-inline="true" data-theme="a" data-mini="true">Passa</a>
-        <a href="#pause_game" id="pause_button" class="float_right" data-role="button" data-inline="true" data-theme="a" data-mini="true" data-rel="popup" data-position-to="#board">Pausa</a>
+        <a href="#pause_game" id="pause_button" class="float_right" data-transition="slidedown" data-role="button" data-inline="true" data-theme="a" data-mini="true" data-rel="popup" data-position-to="#board">Pausa</a>
       </div>
       
     </section>
@@ -74,7 +81,7 @@
     <!-- OPTIONS -->
     <section id="options" data-role="page">
       <h2 class="inner_standard">Opzioni</h2>
-      <div class="switches inner_standard">
+      <div class="switches">
         <div data-role="fieldcontain" id="sounds_option">
           <fieldset data-role="controlgroup" data-type="horizontal">
             <legend>Suoni</legend>

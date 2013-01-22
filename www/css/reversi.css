@@ -143,14 +143,14 @@ table {
   box-shadow: 3px 3px 2px #000;
 } */
 
-/* #end_game {
-  top: 100px;
-  z-index: 15;
-  left: 370px;
-  -webkit-transform:rotate(-20deg);
-  transform:rotate(-20deg);
-  display: none;
-} */
+#end_game {
+  text-align: center;
+  font-size: 1.5em;
+} 
+
+#chart {
+  font-size: 1.3em;
+}
 
 #game {
   background: url('../img/base_reversi.png') 0 0 no-repeat;

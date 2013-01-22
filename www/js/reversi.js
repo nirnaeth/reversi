@@ -73,7 +73,14 @@ var Reversi = function () {
     this.b.setTypeAtPosition(new Position(3, 4), 2);
     this.b.setTypeAtPosition(new Position(4, 3), 2);
     this.currentPlayer = 1;
+    this.piece_sound = new Audio('sounds/piece.mp3');
   };
+  
+  Reversi.prototype.playPieceSound = function() {
+    if (this.sounds_option === 'on' || this.sounds_option === undefined) {
+      this.piece_sound.play();
+    }
+  }
   
   Reversi.prototype.playSound = function(path) {
     if (this.sounds_option === 'on' || this.sounds_option === undefined) {
@@ -532,7 +539,7 @@ var Reversi = function () {
         }
         //addMoveToList(game.getCurrentPlayer(), bestMove);
         game.makeMove(bestMove);
-        game.playSound('sounds/piece.mp3');
+        game.playPieceSound();
         return bestMove;
       }
     };

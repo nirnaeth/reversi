@@ -56,7 +56,7 @@ var Reversi = function () {
     
     // Use custom player name
     if (window.localStorage.name == undefined || window.localStorage.name == '') {
-      window.localStorage.name = 'Giocatore 1';
+      window.localStorage.name = 'Giocatore';
     }
     
     $('#name').val(window.localStorage.name);

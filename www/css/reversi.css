@@ -111,8 +111,9 @@ table {
 
 #record ol {
   list-style: decimal;
-  width: 70%;
-  margin: 0 18%;;
+  width: 80%;
+  margin: 0 auto;
+  list-style-position: inside;
 }
 
 /* #end_game {

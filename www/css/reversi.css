@@ -104,7 +104,7 @@ table {
 
 .switches {
   margin: 0 auto;
-  width: 54%;
+  width: 55%;
 }
 
 .switches label {
@@ -296,6 +296,10 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
   #game {
     background: url('../img/base_reversi@5.png') 0 0 no-repeat;
+  }
+  
+  #game_menu {
+    height: 568px;
   }
 }
 

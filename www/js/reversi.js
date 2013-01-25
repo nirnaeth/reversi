@@ -504,24 +504,6 @@ var Reversi = function () {
     }
     return value;
   };
-
-  var randomBackground = function() {
-    // Random background
-    var backgroundList = ['_astralia', '_brownfield', '_cucina', '_dynamite', '_goldfish', '_uno'];
-    var backgroundColor = backgroundList[Math.floor(Math.random() * backgroundList.length)];
-    
-    var currentBackgroundMatch = $('#game').css('background').match(/base_reversi.*.png/gi);
-    var newBackground = 'base_reversi' + backgroundColor + '.png';
-    var oldBackground = currentBackgroundMatch[0];
-    
-    if (oldBackground.match('/@/') !== null) {
-      var parts = oldBackground.split('@');
-      newBackground = 'base_reversi' + backgroundColor + parts[1];
-      console.log(newBackground);
-    } 
-    
-    $('#game').css('background', "url('img/" + newBackground + "') 0 0 no-repeat");
-  }
   
   var runGame = function () {
     /// <summary>Run the game</summary>
@@ -582,6 +564,30 @@ var Reversi = function () {
       drawBoardWithEventHandlers();
     };
 
+    var randomBackground = function() {
+      // Random background
+      var backgroundColor = '';
+      var backgroundList = ['_astralia', '_brownfield', '_cucina', '_dynamite', '_goldfish', '_uno'];
+      backgroundColor = backgroundList[Math.floor(Math.random() * backgroundList.length)];
+      
+      var currentBackgroundMatch = $('#game').css('background').match(/base_reversi.*.png/gi);
+      var newBackground = 'base_reversi' + backgroundColor + '.png';
+      var oldBackground = currentBackgroundMatch[0];
+      
+      console.log(currentBackgroundMatch);
+      if (oldBackground.match(/@/) !== null) {
+        var parts = oldBackground.split('@');
+        newBackground = 'base_reversi' + backgroundColor + parts[1];
+      } 
+      
+      $('#game').css('background', "url('img/" + newBackground + "') 0 0 no-repeat");
+      console.log(newBackground);
+      if (newBackground.match(/base_reversi_dynamite.*/) !== null) {
+        $('#player_1').css('color', '#000000');
+      }
+    };
+
+
     // Push the error in case of illegal moves
     var eventHandler = function (row, column) {
       try {
@@ -600,9 +606,9 @@ var Reversi = function () {
     
     $("#replay_button").click(
        function () {
-         randomBackground();
          runGame();
          $.mobile.changePage($('#game'));
+         randomBackground();
        });
     
     $('#sounds_option').change(
@@ -610,13 +616,6 @@ var Reversi = function () {
         game.sounds_option = $(this).val();
       });
 
-    // $('#options #back_button').click(
-    //   function() {
-    //     var name = $("input[name='name']:text").val();
-    //     window.localStorage.name = name;
-    //     $('#player_1_name').html(window.localStorage.getItem('name'));
-    //   });
-    
     $('#record_button').live('click',
       function() {
         refreshLocalStorage();
@@ -625,13 +624,13 @@ var Reversi = function () {
     $('#play_button').click(
       function() {
         $('#name_field').show();
-        randomBackground();
       });
       
     $('#start_button').live('click', 
       function() {
-        var name = $("input[name='name']:text").val();        
+        var name = $("input[name='name']:text").val();
         runGame();
+        randomBackground();
         window.localStorage.setItem('name', name);
         $('#player_1_name').html(window.localStorage.getItem('name'));
         $('#name_field').hide();

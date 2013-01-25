@@ -505,6 +505,24 @@ var Reversi = function () {
     return value;
   };
 
+  var randomBackground = function() {
+    // Random background
+    var backgroundList = ['_astralia', '_brownfield', '_cucina', '_dynamite', '_goldfish', '_uno'];
+    var backgroundColor = backgroundList[Math.floor(Math.random() * backgroundList.length)];
+    
+    var currentBackgroundMatch = $('#game').css('background').match(/base_reversi.*.png/gi);
+    var newBackground = 'base_reversi' + backgroundColor + '.png';
+    var oldBackground = currentBackgroundMatch[0];
+    
+    if (oldBackground.match('/@/') !== null) {
+      var parts = oldBackground.split('@');
+      newBackground = 'base_reversi' + backgroundColor + parts[1];
+      console.log(newBackground);
+    } 
+    
+    $('#game').css('background', "url('img/" + newBackground + "') 0 0 no-repeat");
+  }
+  
   var runGame = function () {
     /// <summary>Run the game</summary>
     var game = new Reversi();
@@ -582,6 +600,7 @@ var Reversi = function () {
     
     $("#replay_button").click(
        function () {
+         randomBackground();
          runGame();
          $.mobile.changePage($('#game'));
        });
@@ -606,6 +625,7 @@ var Reversi = function () {
     $('#play_button').click(
       function() {
         $('#name_field').show();
+        randomBackground();
       });
       
     $('#start_button').live('click', 

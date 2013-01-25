@@ -301,5 +301,13 @@ only screen and (min-device-pixel-ratio: 1.5) {
   #game_menu {
     height: 568px;
   }
+  
+  #game_menu,
+  #pause_game,
+  #end_game,
+  #options,
+  #record {
+    background: url('../img/empty_base@5.png') 0 0 no-repeat;
+  }
 }
 

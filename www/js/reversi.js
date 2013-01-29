@@ -624,6 +624,7 @@ var Reversi = function () {
 
     $('#play_button').click(
       function() {
+        $('#name').val(window.localStorage.name);
         $('#name_field').show();
       });
       
@@ -636,6 +637,11 @@ var Reversi = function () {
         $('#player_1_name').html(window.localStorage.getItem('name'));
         $('#name_field').hide();
       });
+      
+      $('#name').focus(
+        function() {
+          $(this).val('');
+        });
       
     drawBoardWithEventHandlers();
   };

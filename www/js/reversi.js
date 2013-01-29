@@ -580,9 +580,11 @@ var Reversi = function () {
       } 
       
       $('#game').css('background', "url('img/" + newBackground + "') 0 0 no-repeat");
-      
+      console.log(newBackground);
       if (newBackground.match(/base_reversi_dynamite.*/) !== null) {
         $('#player_1').css('color', '#000000');
+      } else {
+        $('#player_1').css('color', '#ffffff');
       }
     };
 

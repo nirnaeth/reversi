@@ -574,15 +574,13 @@ var Reversi = function () {
       var newBackground = 'base_reversi' + backgroundColor + '.png';
       var oldBackground = currentBackgroundMatch[0];
       
-      console.log('current');
-      console.log(currentBackgroundMatch);
       if (oldBackground.match(/@/) !== null) {
         var parts = oldBackground.split('@');
         newBackground = 'base_reversi' + backgroundColor + '@' + parts[1];
       } 
-      console.log('new');
+      
       $('#game').css('background', "url('img/" + newBackground + "') 0 0 no-repeat");
-      console.log(newBackground);
+      
       if (newBackground.match(/base_reversi_dynamite.*/) !== null) {
         $('#player_1').css('color', '#000000');
       }
@@ -608,7 +606,6 @@ var Reversi = function () {
     $("#replay_button").click(
        function () {
          runGame();
-         console.log('replay')
          randomBackground();
          $.mobile.changePage($('#game'));
        });
@@ -632,7 +629,6 @@ var Reversi = function () {
       function() {
         var name = $("input[name='name']:text").val();
         runGame();
-        console.log('start');
         randomBackground();
         window.localStorage.setItem('name', name);
         $('#player_1_name').html(window.localStorage.getItem('name'));

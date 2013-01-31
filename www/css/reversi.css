@@ -114,7 +114,7 @@ table {
 }
 
 #game_menu {
-  height: 480px;
+  height: 460px;
 }
 
 #record ol {
@@ -248,7 +248,6 @@ only screen and (min-device-pixel-ratio: 1.5) {
     background: url('../img/base_reversi_uno@2x.png') 0 0 no-repeat;
   }
   
-  #game_menu,
   #pause_game,
   #end_game,
   #options,
@@ -294,10 +293,9 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
   
   #game_menu {
-    height: 568px;
+    height: 548px;
   }
   
-  #game_menu,
   #pause_game,
   #end_game,
   #options,

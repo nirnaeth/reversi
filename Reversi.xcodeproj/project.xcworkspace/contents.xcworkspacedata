@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:reversi.xcodeproj">
+      location = "self:Reversi.xcodeproj">
    </FileRef>
 </Workspace>

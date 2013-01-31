@@ -25,6 +25,9 @@
 	<key>ExternalHosts</key>
 	<array>
 		<string>www.fermoeditore.it</string>
+		<string>pellicelli.com</string>
+		<string>freegoweb.it</string>
+		<string>github.com/jacksondk</string>
 	</array>
 	<key>Plugins</key>
 	<dict>

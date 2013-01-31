@@ -7,6 +7,19 @@ body {
   text-transform: uppercase;
 }
 
+#credits p {
+  margin-bottom: 1.5em;
+}
+
+.ui-body-c .ui-link,
+.ui-body-c .ui-link:visited {
+  color: #000000;
+}
+
+.ui-body-c .ui-link:hover {
+  color: #D01B2B;
+}
+
 .ui-body-c, 
 .ui-overlay-c {
   background-color: #000000;
@@ -108,7 +121,7 @@ table {
 #main_menu,
 #pause_game,
 #end_game,
-#options,
+#credits,
 #record {
   background: url('../img/empty_base.png') 0 0 no-repeat;
 }
@@ -123,18 +136,6 @@ table {
   margin: 0 auto;
   list-style-position: inside;
 }
-
-/* #end_game {
-  width: 280px;
-  height: 300px;
-  position: absolute;
-  top: 20px;
-  left: -10px;
-  z-index: 20;
-  -webkit-transform:rotate(20deg);
-  transform:rotate(20deg);
-  box-shadow: 3px 3px 2px #000;
-} */
 
 #end_game {
   text-align: center;
@@ -237,6 +238,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   #game,
   #game_menu,
   #end_game,
+  #credits,
   #pause_game,
   #options,
   #record {
@@ -250,6 +252,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   
   #pause_game,
   #end_game,
+  #credits,
   #options,
   #record {
     background: url('../img/empty_base@2x.png') 0 0 no-repeat;
@@ -282,6 +285,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   #game_menu,
   #end_game,
   #pause_game,
+  #credits,
   #options,
   #record {
     -webkit-background-size: 320px 568px;
@@ -298,6 +302,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   
   #pause_game,
   #end_game,
+  #credits,
   #options,
   #record {
     background: url('../img/empty_base@5.png') 0 0 no-repeat;

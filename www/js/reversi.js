@@ -62,6 +62,7 @@ var Reversi = function () {
     $('#name').val(window.localStorage.name);
     $('#name_field').hide();
     
+    this.piece_sound = new Audio('sounds/piece.mp3');
     // Which player is the current one
     this.currentPlayer = spec.currentPlayer || 1;
   };
@@ -73,11 +74,12 @@ var Reversi = function () {
     this.b.setTypeAtPosition(new Position(3, 4), 2);
     this.b.setTypeAtPosition(new Position(4, 3), 2);
     this.currentPlayer = 1;
-    this.piece_sound = new Audio('sounds/piece.mp3');
   };
   
   Reversi.prototype.playPieceSound = function() {
+    alert('entro');
     if (this.sounds_option === 'on' || this.sounds_option === undefined) {
+      alert('arientro');
       this.piece_sound.play();
     }
   }

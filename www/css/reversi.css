@@ -251,6 +251,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
   
   #pause_game,
+  #game_menu,
   #end_game,
   #credits,
   #options,
@@ -297,9 +298,10 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
   
   #game_menu {
-    height: 548px;
+    height: 568px;
   }
   
+  #game_menu,
   #pause_game,
   #end_game,
   #credits,
@@ -308,4 +310,3 @@ only screen and (min-device-pixel-ratio: 1.5) {
     background: url('../img/empty_base@5.png') 0 0 no-repeat;
   }
 }
-

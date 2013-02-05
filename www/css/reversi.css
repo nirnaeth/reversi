@@ -251,7 +251,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
   
   #pause_game,
-  #game_menu,
+  #game_menu, 
   #end_game,
   #credits,
   #options,
@@ -298,7 +298,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   }
   
   #game_menu {
-    height: 568px;
+    height: 548px;
   }
   
   #game_menu,

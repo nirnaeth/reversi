@@ -77,9 +77,7 @@ var Reversi = function () {
   };
   
   Reversi.prototype.playPieceSound = function() {
-    alert('entro');
     if (this.sounds_option === 'on' || this.sounds_option === undefined) {
-      alert('arientro');
       this.piece_sound.play();
     }
   }

@@ -56,13 +56,12 @@ var Reversi = function () {
     
     // Use custom player name
     if (window.localStorage.name == undefined || window.localStorage.name == '') {
-      window.localStorage.name = 'Giocatore';
+      window.localStorage.name = 'Player';
     }
     
     $('#name').val(window.localStorage.name);
     $('#name_field').hide();
     
-    this.piece_sound = new Audio('sounds/piece.mp3');
     // Which player is the current one
     this.currentPlayer = spec.currentPlayer || 1;
   };
@@ -74,10 +73,13 @@ var Reversi = function () {
     this.b.setTypeAtPosition(new Position(3, 4), 2);
     this.b.setTypeAtPosition(new Position(4, 3), 2);
     this.currentPlayer = 1;
+    if (this.piece_sound === undefined) {
+      this.piece_sound = new Audio('sounds/piece.mp3');
+    }
   };
   
   Reversi.prototype.playPieceSound = function() {
-    if (this.sounds_option === 'on' || this.sounds_option === undefined) {
+    if (this.sounds_option === 'on' || this.sounds_option === undefined) {      
       this.piece_sound.play();
     }
   }
@@ -177,6 +179,7 @@ var Reversi = function () {
   };
   
   var refreshLocalStorage = function() {
+    console.log('chiamata');
     if (window.localStorage.record != undefined) {
       $('#chart').empty();
       $('#chart').append('<ol></ol>');
@@ -187,7 +190,7 @@ var Reversi = function () {
       });
       
       chart.forEach(function(item) {            
-        var position = '<li>' + item.name + ' <span class="float_right">' + item.score.me + ' a ' + item.score.opponent + '</span></li>'
+        var position = '<li>' + item.name + ' <span class="float_right">' + item.score.me + ' - ' + item.score.opponent + '</span></li>'
         $('#record ol').append(position);
       });
     }
@@ -316,11 +319,11 @@ var Reversi = function () {
       var selector = '#end_game #result';
       $(selector).empty();
       var result_string = '<div class="inner_standard">';
-      result_string = 'Hai vinto!';
+      result_string = 'You won!';
       var result = 'win';
       
       if (playerOneCount < playerTwoCount) { 
-        result_string = 'Hai perso :('; 
+        result_string = 'You lose :('; 
         result = 'lose'; 
       } else {
         updateChart(playerOneCount, playerTwoCount);
@@ -567,9 +570,10 @@ var Reversi = function () {
     var randomBackground = function() {
       // Random background
       var backgroundColor = '';
-      var backgroundList = ['_astralia', '_brownfield', '_cucina', '_dynamite', '_goldfish', '_uno'];
+      //var backgroundList = ['_astralia', '_brownfield', '_cucina', '_dynamite', '_goldfish', '_uno'];
+      var backgroundList = ['_astralia', '_brownfield', '_dynamite', '_uno'];
       backgroundColor = backgroundList[Math.floor(Math.random() * backgroundList.length)];
-      
+      console.log(backgroundColor);
       var currentBackgroundMatch = $('#game').css('background').match(/base_reversi.*.png/gi);
       var newBackground = 'base_reversi' + backgroundColor + '.png';
       var oldBackground = currentBackgroundMatch[0];
@@ -586,6 +590,13 @@ var Reversi = function () {
       } else {
         $('#player_1').css('color', '#ffffff');
       }
+      
+      backgroundList = null;
+      backgroundColor = null;
+      currentBackgroundMatch = null;
+      oldBackground = null;
+      newBackground = null;
+      parts = null;
     };
 
 

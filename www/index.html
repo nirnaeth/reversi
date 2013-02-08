@@ -15,16 +15,16 @@
     <section id="main_menu" data-role="page">
       <div id="game_menu">
         <nav data-role="content">
-          <a href="#" data-role="button" data-theme="a" id="play_button">Gioca</a>
+          <a href="#" data-role="button" data-theme="a" id="play_button">Play</a>
           <div data-role="fieldcontain" id="name_field">
-            <label for="name">Nome:</label>
+            <label for="name">Name:</label>
             <input type="text" name="name" id="name" value="" data-mini="true"/>
             <nav data-role="content">
-              <a href="#game" data-role="button" data-theme="a" id="start_button" data-mini="true">Salva</a>
+              <a href="#game" data-role="button" data-theme="a" id="start_button" data-mini="true">Start</a>
             </nav>
           </div>
-          <a href="http://www.fermoeditore.it" data-role="button" data-theme="a" target="_blank">Visita il sito</a>
-          <a href="#record" data-role="button" data-theme="a" id="record_button" >Classifica</a>
+          <a href="http://www.fermoeditore.it" data-role="button" data-theme="a" target="_blank">Visit the website</a>
+          <a href="#record" data-role="button" data-theme="a" id="record_button" >Chart</a>
           <a href="#credits" data-role="button" data-theme="a" id="credits_button">Credits</a>
         </nav>
       </div>
@@ -33,13 +33,13 @@
     <!-- GAME -->
     <section id="game" data-role="page">
       <div id="pause_game" data-role="popup" data-overlay-theme="a">
-        <h2 class="inner_standard">Pausa</h2>
+        <h2 class="inner_standard">Pause</h2>
         <nav data-role="content">
-          <a href="#" data-role="button" data-rel="back" data-theme="a" id="resume_button">Riprendi</a>
-          <a href="#record" data-role="button" data-theme="a" id="record_button" >Classifica</a>
-          <a href="#main_menu" data-role="button" data-theme="a" id="menu_button" >Torna al menu</a>
+          <a href="#" data-role="button" data-rel="back" data-theme="a" id="resume_button">Continue</a>
+          <a href="#record" data-role="button" data-theme="a" id="record_button" >Chart</a>
+          <a href="#main_menu" data-role="button" data-theme="a" id="menu_button" >Home</a>
           <div class="switches">
-            <label for="sounds_option">Suoni</label>
+            <label for="sounds_option">Sounds</label>
             <select name="sounds_option" id="sounds_option" data-role="slider" data-mini="true">
               <option id="sounds_off" value="off">Off</option>
               <option id="sounds_on" value="on" selected="selected">On</option>
@@ -49,7 +49,7 @@
       </div>
       <div class="players inner_standard">
         <div id="player_1" class="float_left">
-          <div id="player_1_name">Giocatore</div>
+          <div id="player_1_name">Player</div>
           <div class="score"></div>
         </div>
         
@@ -61,8 +61,8 @@
       <section id="board">
       </section>
       <div class="toolbar inner_standard">
-        <a href="#" id="pass_button" class="button_disabled" data-role="button" data-inline="true" data-theme="a" data-mini="true">Passa</a>
-        <a href="#pause_game" id="pause_button" class="float_right" data-transition="slidedown" data-role="button" data-inline="true" data-theme="a" data-mini="true" data-rel="popup" data-position-to="#board">Pausa</a>
+        <a href="#" id="pass_button" class="button_disabled" data-role="button" data-inline="true" data-theme="a" data-mini="true">Pass</a>
+        <a href="#pause_game" id="pause_button" class="float_right" data-transition="slidedown" data-role="button" data-inline="true" data-theme="a" data-mini="true" data-rel="popup" data-position-to="#board">Pause</a>
       </div>
       
     </section>
@@ -73,20 +73,20 @@
       <div id="result" class="inner_standard">
       </div>
       <nav data-role="content">
-        <a href="#record" data-role="button" data-theme="a" id="record_button">Classifica</a>
-        <a href="#" data-role="button" data-theme="a" id="replay_button">Gioca ancora</a>
+        <a href="#record" data-role="button" data-theme="a" id="record_button">Chart</a>
+        <a href="#" data-role="button" data-theme="a" id="replay_button">Play again</a>
       </nav>
     </section>
     <!-- /END GAME -->
     
     <!-- RECORD PAGE -->
     <section id="record" data-role="page">
-      <h2 class="inner_standard">Classifica</h2>
+      <h2 class="inner_standard">Chart</h2>
       <div id="chart" class="inner_standard">
-        <p>Nessuno in classifica al momento.</p>
+        <p>No result.</p>
       </div>
       <div class="toolbar inner_standard">
-        <a href="#game" id="back_button" data-role="button" data-inline="true" data-theme="a" data-mini="true" data-rel="back">Indietro</a>
+        <a href="#game" id="back_button" data-role="button" data-inline="true" data-theme="a" data-mini="true" data-rel="back">Back</a>
       </div>
     </section>
     <!-- /RECORD PAGE -->
@@ -94,12 +94,12 @@
     <section id="credits" data-role="page">
       <h2 class="inner_standard">Credits</h2>
       <div class="inner_standard">
-        <p>Grafica: <a href="http://pellicelli.com/">Simone Pellicelli</a></p>
-        <p>Realizzazione: <a href="http://freegoweb.it/">Monica Giambitto</a></p>
-        <p>Algoritmo: <a href="https://github.com/jacksondk">jacksondk</a></p>
+        <p>Graphics: <a href="http://pellicelli.com/">Simone Pellicelli</a></p>
+        <p>Development: <a href="http://freegoweb.it/">Monica Giambitto</a></p>
+        <p>Algorithm: <a href="https://github.com/jacksondk">jacksondk</a></p>
       </div>
       <div class="toolbar inner_standard">
-        <a href="#game" id="back_button" data-role="button" data-inline="true" data-theme="a" data-mini="true" data-rel="back">Indietro</a>
+        <a href="#game" id="back_button" data-role="button" data-inline="true" data-theme="a" data-mini="true" data-rel="back">Back</a>
       </div>
     </section>
     <!-- /CREDITS PAGE -->

@@ -571,7 +571,7 @@ var Reversi = function () {
       // Random background
       var backgroundColor = '';
       //var backgroundList = ['_astralia', '_brownfield', '_cucina', '_dynamite', '_goldfish', '_uno'];
-      var backgroundList = ['_astralia', '_brownfield', '_dynamite', '_uno'];
+      var backgroundList = ['_astralia', '_brownfield', '_sunandsnow'];
       backgroundColor = backgroundList[Math.floor(Math.random() * backgroundList.length)];
       console.log(backgroundColor);
       var currentBackgroundMatch = $('#game').css('background').match(/base_reversi.*.png/gi);

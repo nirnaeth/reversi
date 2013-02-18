@@ -801,6 +801,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Monica Giambitto";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Monica Giambitto";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "reversi/Reversi-Prefix.pch";
@@ -809,6 +811,8 @@
 				INFOPLIST_FILE = "reversi/Reversi-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = Reversi;
+				PROVISIONING_PROFILE = "BD8D56A4-6AD6-42FE-8079-1F4045269C59";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BD8D56A4-6AD6-42FE-8079-1F4045269C59";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

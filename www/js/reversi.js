@@ -136,7 +136,9 @@ var Reversi = function () {
 
   Reversi.prototype.doMove = function (move) {
     var newGame = new Reversi({ board: this.b, currentPlayer: this.currentPlayer });
+    
     newGame.makeMove(move);
+    
     return newGame;
   };
     
@@ -279,7 +281,7 @@ var Reversi = function () {
       var c = event.data.column;
       clickEventHandler(r, c);
     };
-
+    
     for (rowIndex = 0; rowIndex < 8; rowIndex++) {
       row = $("<tr>")//.append($("<td>").append(rowName[rowIndex]));
       for (columnIndex = 0; columnIndex < 8; columnIndex++) {
@@ -303,7 +305,7 @@ var Reversi = function () {
         row.append(field);
       }
       
-      table.append(row);
+      table.append(row);    
     }
     
     if (allowedMoves.length === 1 && allowedMoves[0].isPassMove()) {
@@ -348,7 +350,7 @@ var Reversi = function () {
     var bestIndex = -1;
     var i;
     var playerSign = 1;
-    if (game.getCurrentPlayer() == 2) { playerSign = -1; }
+    if (game.getCurrentPlayer() === 2) { playerSign = -1; }
 
     for (i = 0; i < moveList.length; i++) {
       var newGame = game.doMove(moveList[i]);
@@ -519,7 +521,6 @@ var Reversi = function () {
       /// <returns type="">Returns the opponent move</returns>
       var moves = game.getLegalMoves();
       if (moves.length == 1 && moves[0].isGameOver()) {
-        
         return moves[0];
       } else {
         var bestMove;
@@ -541,10 +542,17 @@ var Reversi = function () {
             break;
         }
         //addMoveToList(game.getCurrentPlayer(), bestMove);
+        
         game.makeMove(bestMove);
-        game.playPieceSound();
+        
+        setTimeout(function(){
+          drawBoardWithEventHandlers();
+          game.playPieceSound();
+        }, 700);
+        
         return bestMove;
       }
+      
     };
 
     var drawBoardWithEventHandlers = function () {
@@ -562,8 +570,7 @@ var Reversi = function () {
         window.alert(err);
         return;
       }
-
-      opponentMove();
+      
       drawBoardWithEventHandlers();
     };
 
@@ -606,14 +613,14 @@ var Reversi = function () {
         var move = positionMove(new Position(row, column));
         //addMoveToList(game.getCurrentPlayer(), move);
         game.makeMove(move);
+        game.playPieceSound();
       }
       catch (err) {
         //window.alert(err);
         return;
       }
-
-      opponentMove();
       drawBoardWithEventHandlers();
+      opponentMove();
     };
     
     $("#replay_button").click(

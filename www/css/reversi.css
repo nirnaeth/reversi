@@ -126,6 +126,10 @@ table {
   background: url('../img/empty_base.png') 0 0 no-repeat;
 }
 
+#name_1, #name_2 {
+  margin-bottom: 1%;
+}
+
 #game_menu {
   height: 480px;
 }

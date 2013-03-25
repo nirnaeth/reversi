@@ -15,12 +15,22 @@
     <section id="main_menu" data-role="page">
       <div id="game_menu">
         <nav data-role="content">
-          <a href="#" data-role="button" data-theme="a" id="play_button">Play</a>
+          <a href="#" data-role="button" data-theme="a" id="single_player_button">Single Player</a>
           <div data-role="fieldcontain" id="name_field">
             <label for="name">Name:</label>
             <input type="text" name="name" id="name" value="" data-mini="true"/>
             <nav data-role="content">
               <a href="#game" data-role="button" data-theme="a" id="start_button" data-mini="true">Start</a>
+            </nav>
+          </div>
+          <a href="#" data-role="button" data-theme="a" id="two_players_button">Two Players</a>
+          <div data-role="fieldcontain" id="names_field">
+            <label for="name_1">Player 1 Name:</label>
+            <input type="text" name="name_1" id="name_1" value="" data-mini="true"/>
+            <label for="name_2">Player 2 Name:</label>
+            <input type="text" name="name_2" id="name_2" value="" data-mini="true"/>
+            <nav data-role="content">
+              <a href="#game" data-role="button" data-theme="a" id="start_button_two" data-mini="true">Start</a>
             </nav>
           </div>
           <a href="http://www.fermoeditore.it" data-role="button" data-theme="a" target="_blank">Visit the website</a>
@@ -54,7 +64,7 @@
         </div>
         
         <div id="player_2" class="float_right">
-          <div>Computer</div>
+          <div id="player_2_name">Computer</div>
           <div class="score"></div>
         </div>
       </div>

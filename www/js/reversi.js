@@ -61,6 +61,7 @@ var Reversi = function () {
     
     $('#name').val(window.localStorage.name);
     $('#name_field').hide();
+    $('#names_field').hide();
     
     // Which player is the current one
     this.currentPlayer = spec.currentPlayer || 1;
@@ -181,7 +182,6 @@ var Reversi = function () {
   };
   
   var refreshLocalStorage = function() {
-    console.log('chiamata');
     if (window.localStorage.record != undefined) {
       $('#chart').empty();
       $('#chart').append('<ol></ol>');
@@ -541,7 +541,7 @@ var Reversi = function () {
             bestMove = getBestMoveMinimax(game, simpleEvaluator, 4);
             break;
         }
-        //addMoveToList(game.getCurrentPlayer(), bestMove);
+        
         
         game.makeMove(bestMove);
         
@@ -640,10 +640,19 @@ var Reversi = function () {
         refreshLocalStorage();
       });
 
-    $('#play_button').click(
+    $('#single_player_button').click(
       function() {
         $('#name').val(window.localStorage.name);
         $('#name_field').show();
+        $('#names_field').hide();
+      });
+      
+    $('#two_players_button').click(
+      function() {
+        $('#name_1').val('Player 1');
+        $('#name_2').val('Player 2');
+        $('#names_field').show();
+        $('#name_field').hide();
       });
       
     $('#start_button').unbind('click').click( 
@@ -656,7 +665,20 @@ var Reversi = function () {
         $('#name_field').hide();
       });
       
-      $('#name').focus(
+      $('#start_button_two').unbind('click').click( 
+        function() {
+          var name_1 = $("input[name='name_1']:text").val();
+          var name_2 = $("input[name='name_2']:text").val();
+          runGame();
+          randomBackground();
+          window.localStorage.setItem('name_1', name_1);
+          window.localStorage.setItem('name_2', name_2);
+          $('#player_1_name').html(window.localStorage.getItem('name_1'));
+          $('#player_2_name').html(window.localStorage.getItem('name_2'));
+          $('#names_field').hide();
+        });
+      
+      $('#name, #name_1, #name_2').focus(
         function() {
           $(this).val('');
         });

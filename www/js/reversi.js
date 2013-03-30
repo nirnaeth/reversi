@@ -36,7 +36,6 @@ var Reversi = function () {
     that.getPosition = function () { return movePosition; };
     that.show = function () { return movePosition.show(); };
     return that;
-
   };
 
   var otherPlayer = function (type) {
@@ -67,7 +66,7 @@ var Reversi = function () {
     this.currentPlayer = spec.currentPlayer || 1;
   };
 
-  Reversi.prototype.setup = function () {
+  Reversi.prototype.setup = function (game_type) {
     this.b = new Board();
     this.b.setTypeAtPosition(new Position(3, 3), 1);
     this.b.setTypeAtPosition(new Position(4, 4), 1);
@@ -77,8 +76,9 @@ var Reversi = function () {
     if (this.piece_sound === undefined) {
       this.piece_sound = new Audio('sounds/piece.mp3');
     }
+    this.game_type = game_type;
   };
-  
+    
   Reversi.prototype.playPieceSound = function() {
     if (this.sounds_option === 'on' || this.sounds_option === undefined) {      
       this.piece_sound.play();
@@ -253,7 +253,6 @@ var Reversi = function () {
       } else {
         legalMoves.push(passMove());
       }
-
     }
 
     return legalMoves;
@@ -267,13 +266,9 @@ var Reversi = function () {
   var drawBoard = function (game, clickEventHandler, passHandler) {
     var rowIndex, columnIndex;
     var playerOneCount = 0, playerTwoCount = 0;
-
     var board = game.getBoard();
-
     var allowedMoves = game.getLegalMoves();
-
     var table = $("<table>").addClass("board");
-    
     var row = '';
 
     var internalClickEventHandler = function (event) {
@@ -304,7 +299,6 @@ var Reversi = function () {
         }
         row.append(field);
       }
-      
       table.append(row);    
     }
     
@@ -362,7 +356,6 @@ var Reversi = function () {
     }
     return moveList[bestIndex];
   };
-
 
   var minimax = function (state,
     evaluationFunction,
@@ -467,7 +460,6 @@ var Reversi = function () {
       m = minValueFunction(state, ply, -1e125, 1e125);
     }
 
-
     return {
       move: m.move,
       value: m.value,
@@ -510,11 +502,10 @@ var Reversi = function () {
     return value;
   };
   
-  var runGame = function () {
+  var runGame = function (game_type) {
     /// <summary>Run the game</summary>
     var game = new Reversi();
-    
-    game.setup();
+    game.setup(game_type);
     
     var opponentMove = function () {
       /// <summary>Make a computer move</summary>
@@ -542,7 +533,6 @@ var Reversi = function () {
             break;
         }
         
-        
         game.makeMove(bestMove);
         
         setTimeout(function(){
@@ -552,28 +542,48 @@ var Reversi = function () {
         
         return bestMove;
       }
-      
     };
-
+    
     var drawBoardWithEventHandlers = function () {
       var board = drawBoard(game, eventHandler, passHandler);
       $("#board").html(board);
     };
-
+    
     var passHandler = function () {
       try {
         var move = passMove();
-        //addMoveToList(game.getCurrentPlayer(), move);
         game.makeMove(move);
       }
       catch (err) {
-        window.alert(err);
+        alert(err);
+        return;
+      }
+      setTimeout(function(){
+        drawBoardWithEventHandlers();
+          game.playPieceSound();
+        }, 700);
+    };
+    
+    // Push the error in case of illegal moves
+    var eventHandler = function (row, column) {
+      try {
+        var move = positionMove(new Position(row, column));
+        game.makeMove(move);
+        game.playPieceSound();
+      }
+      catch (err) {
         return;
       }
       
       drawBoardWithEventHandlers();
+      if (game.game_type === undefined) {
+        opponentMove();
+      }
+      
     };
-
+      
+    drawBoardWithEventHandlers();
+    
     var randomBackground = function() {
       // Random background
       var backgroundColor = '';
@@ -604,23 +614,6 @@ var Reversi = function () {
       oldBackground = null;
       newBackground = null;
       parts = null;
-    };
-
-
-    // Push the error in case of illegal moves
-    var eventHandler = function (row, column) {
-      try {
-        var move = positionMove(new Position(row, column));
-        //addMoveToList(game.getCurrentPlayer(), move);
-        game.makeMove(move);
-        game.playPieceSound();
-      }
-      catch (err) {
-        //window.alert(err);
-        return;
-      }
-      drawBoardWithEventHandlers();
-      opponentMove();
     };
     
     $("#replay_button").click(
@@ -664,26 +657,24 @@ var Reversi = function () {
         $('#player_1_name').html(window.localStorage.getItem('name'));
         $('#name_field').hide();
       });
-      
-      $('#start_button_two').unbind('click').click( 
-        function() {
-          var name_1 = $("input[name='name_1']:text").val();
-          var name_2 = $("input[name='name_2']:text").val();
-          runGame();
-          randomBackground();
-          window.localStorage.setItem('name_1', name_1);
-          window.localStorage.setItem('name_2', name_2);
-          $('#player_1_name').html(window.localStorage.getItem('name_1'));
-          $('#player_2_name').html(window.localStorage.getItem('name_2'));
-          $('#names_field').hide();
-        });
-      
-      $('#name, #name_1, #name_2').focus(
-        function() {
-          $(this).val('');
-        });
-      
-    drawBoardWithEventHandlers();
+    
+    $('#start_button_two').unbind('click').click( 
+      function() {
+        var name_1 = $("input[name='name_1']:text").val();
+        var name_2 = $("input[name='name_2']:text").val();
+        runGame(2);
+        randomBackground();
+        window.localStorage.setItem('name_1', name_1);
+        window.localStorage.setItem('name_2', name_2);
+        $('#player_1_name').html(window.localStorage.getItem('name_1'));
+        $('#player_2_name').html(window.localStorage.getItem('name_2'));
+        $('#names_field').hide();
+      });
+    
+    $('#name, #name_1, #name_2').focus(
+      function() {
+        $(this).val('');
+      });
   };
 
   return {

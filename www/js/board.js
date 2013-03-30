@@ -62,10 +62,6 @@
     string = "<table>";
     string = "" + string + "<tr>";//<td></td>";
     column = 0;
-    // while (column < 8) {
-    //   string = "" + string + "<td>" + colName[column] + "</td>";
-    //   column++;
-    // }
     row = 0;
     while (row < 8) {
       //string = "" + string + "<tr><td>" + rowName[row] + "</td>";

@@ -675,6 +675,13 @@ var Reversi = function () {
       function() {
         $(this).val('');
       });
+      
+    // Avoid popup closing
+    $("#pause_game").on({
+      popupbeforeposition: function () {
+        $('.ui-popup-screen').off();
+      }
+    });
   };
 
   return {

@@ -201,9 +201,11 @@ var Reversi = function () {
   };
 
 
-  var updateChart = function(my_score, opponent_score) {
+  var updateChart = function(name, my_score, opponent_score) {
+    var current_name = name == undefined ? window.localStorage.name : name;
+      
     var obj = {
-      'name' : window.localStorage.name,
+      'name' : current_name,
       'score' : {
         'me' : my_score,
         'opponent' : opponent_score
@@ -315,14 +317,40 @@ var Reversi = function () {
       var selector = '#end_game #result';
       $(selector).empty();
       var result_string = '<div class="inner_standard">';
-      result_string = 'You won!';
-      var result = 'win';
       
-      if (playerOneCount < playerTwoCount) { 
-        result_string = 'You lose :('; 
-        result = 'lose'; 
-      } else {
-        updateChart(playerOneCount, playerTwoCount);
+      // Single player
+      if (game.game_type == undefined) {
+        result_string = 'You won!';
+        
+        var result = 'win';
+        
+        if (playerOneCount < playerTwoCount) { 
+          result_string = 'You lose :('; 
+          result = 'lose'; 
+        } if (playerOneCount == playerTwoCount) {
+          result_string = "It's a tie! :|" 
+          result = 'tie';
+        } else {
+          updateChart(playerOneCount, playerTwoCount);
+        }
+      } else { // Two players
+        var result = 'win';
+        
+        if (playerOneCount == playerTwoCount) {
+          result_string = "It's a tie! :|" 
+          result = 'tie';
+        } else {
+          
+          if (playerOneCount > playerTwoCount) {
+            var winner_name = window.localStorage.getItem('name_1');
+            result_string = winner_name + " won!";
+            updateChart(winner_name, playerOneCount, playerTwoCount);
+          } else {
+            var winner_name = window.localStorage.getItem('name_2');
+            result_string = winner_name + " won!";
+            updateChart(winner_name, playerTwoCount, playerOneCount);
+          }
+        }
       }
       
       $(selector).append(result_string);

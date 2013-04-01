@@ -53,12 +53,25 @@ var Reversi = function () {
       this.b = new Board();
     }
     
-    // Use custom player name
-    if (window.localStorage.name == undefined || window.localStorage.name == '') {
-      window.localStorage.name = 'Player';
+    if (this.game_type == 2) {
+      // Use custom player name
+      if (window.localStorage.name == undefined || window.localStorage.name == '') {
+        window.localStorage.name = 'Player';
+      } 
+      $('#name').val(window.localStorage.name);
+    } else {
+      if (window.localStorage.name_1 == undefined || window.localStorage.name_1 == '') {
+        window.localStorage.name_1 = 'Player 1';
+      }
+      
+      if (window.localStorage.name_2 == undefined || window.localStorage.name_2 == '') {
+        window.localStorage.name_2 = 'Player 2';
+      }
+      
+      $('#name_1').val(window.localStorage.name_1);
+      $('#name_2').val(window.localStorage.name_2);
     }
     
-    $('#name').val(window.localStorage.name);
     $('#name_field').hide();
     $('#names_field').hide();
     
@@ -197,7 +210,14 @@ var Reversi = function () {
       });
     }
     
-    $('#player_1_name').html(window.localStorage.getItem('name'));
+    if (game.game_type == 2) {
+      $('#player_1_name').html(window.localStorage.getItem('name_1'));
+      $('#player_2_name').html(window.localStorage.getItem('name_2'));
+    } else {
+      $('#player_1_name').html(window.localStorage.getItem('name'));
+      $('#player_2_name').html('Computer');
+    }
+    
   };
 
 
@@ -618,7 +638,6 @@ var Reversi = function () {
       //var backgroundList = ['_astralia', '_brownfield', '_cucina', '_dynamite', '_goldfish', '_uno'];
       var backgroundList = ['_astralia', '_brownfield', '_sunandsnow'];
       backgroundColor = backgroundList[Math.floor(Math.random() * backgroundList.length)];
-      console.log(backgroundColor);
       var currentBackgroundMatch = $('#game').css('background').match(/base_reversi.*.png/gi);
       var newBackground = 'base_reversi' + backgroundColor + '.png';
       var oldBackground = currentBackgroundMatch[0];
@@ -646,7 +665,12 @@ var Reversi = function () {
     
     $("#replay_button").click(
        function () {
-         runGame();
+         if (game.game_type == 2) {
+           runGame(2);
+         } else {
+           runGame();
+         }
+         
          randomBackground();
          $.mobile.changePage($('#game'));
        });
@@ -670,8 +694,8 @@ var Reversi = function () {
       
     $('#two_players_button').click(
       function() {
-        $('#name_1').val('Player 1');
-        $('#name_2').val('Player 2');
+        $('#name_1').val(window.localStorage.name_1);
+        $('#name_2').val(window.localStorage.name_2);
         $('#names_field').show();
         $('#name_field').hide();
       });

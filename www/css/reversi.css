@@ -7,8 +7,25 @@ body {
   text-transform: uppercase;
 }
 
-#credits p {
+#credits p,
+#how_to p {
   margin-bottom: 1.5em;
+}
+
+#rules {
+  overflow: scroll;
+  height: 280px;
+  text-transform: none;
+  font-weight: normal;
+}
+
+#how_to h3 {
+  margin-bottom: 1em;
+  font-size: 1.2em;
+}
+
+#how_to li {
+  margin-bottom: 0.5em;
 }
 
 .ui-body-c .ui-link,
@@ -120,6 +137,7 @@ table {
 
 #main_menu,
 #pause_game,
+#how_to,
 #end_game,
 #credits,
 #record {
@@ -243,6 +261,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   #game_menu,
   #end_game,
   #credits,
+  #how_to,
   #pause_game,
   #options,
   #record {
@@ -257,6 +276,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   #pause_game,
   #game_menu, 
   #end_game,
+  #how_to,
   #credits,
   #options,
   #record {
@@ -290,6 +310,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   #game_menu,
   #end_game,
   #pause_game,
+  #how_to,
   #credits,
   #options,
   #record {
@@ -308,6 +329,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   #game_menu,
   #pause_game,
   #end_game,
+  #how_to,
   #credits,
   #options,
   #record {

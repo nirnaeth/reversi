@@ -6,7 +6,7 @@ $(document).bind('storage', function (e) {
 
 var Reversi = function () {
   "use strict";
-  
+
   var passMove = function () {
     var that = {};
 
@@ -29,7 +29,7 @@ var Reversi = function () {
 
   var positionMove = function (position) {
     var that = {};
-    
+
     var movePosition = position;
     that.isPassMove = function () { return false; };
     that.isGameOver = function () { return false; };
@@ -52,29 +52,29 @@ var Reversi = function () {
     else {
       this.b = new Board();
     }
-    
+
     if (this.game_type == 2) {
       // Use custom player name
       if (window.localStorage.name == undefined || window.localStorage.name == '') {
         window.localStorage.name = 'Player';
-      } 
+      }
       $('#name').val(window.localStorage.name);
     } else {
       if (window.localStorage.name_1 == undefined || window.localStorage.name_1 == '') {
         window.localStorage.name_1 = 'Player 1';
       }
-      
+
       if (window.localStorage.name_2 == undefined || window.localStorage.name_2 == '') {
         window.localStorage.name_2 = 'Player 2';
       }
-      
+
       $('#name_1').val(window.localStorage.name_1);
       $('#name_2').val(window.localStorage.name_2);
     }
-    
+
     $('#name_field').hide();
     $('#names_field').hide();
-    
+
     // Which player is the current one
     this.currentPlayer = spec.currentPlayer || 1;
   };
@@ -91,20 +91,20 @@ var Reversi = function () {
     }
     this.game_type = game_type;
   };
-    
+
   Reversi.prototype.playPieceSound = function() {
-    if (this.sounds_option === 'on' || this.sounds_option === undefined) {      
+    if (this.sounds_option === 'on' || this.sounds_option === undefined) {
       this.piece_sound.play();
     }
   }
-  
+
   Reversi.prototype.playSound = function(path) {
     if (this.sounds_option === 'on' || this.sounds_option === undefined) {
       var audio = new Audio(path);
       audio.play();
     }
   }
-  
+
   Reversi.prototype.getBoard = function () { return this.b; };
   Reversi.prototype.getCurrentPlayer = function () { return this.currentPlayer; };
   Reversi.prototype.setCurrentPlayer = function (player) { this.currentPlayer = player; };
@@ -150,12 +150,12 @@ var Reversi = function () {
 
   Reversi.prototype.doMove = function (move) {
     var newGame = new Reversi({ board: this.b, currentPlayer: this.currentPlayer });
-    
+
     newGame.makeMove(move);
-    
+
     return newGame;
   };
-    
+
   Reversi.prototype.makeMove = function (positionMove) {
     var index;
     if (positionMove.isPassMove()) {
@@ -168,11 +168,11 @@ var Reversi = function () {
 
     var turnList = getTurnedPieces(this.b, position, this.currentPlayer);
     if (turnList.length === 0) { throw "Illegal move"; }
-    
+
     for (index = 0; index < turnList.length; index++) {
       this.b.setTypeAtPosition(turnList[index], this.currentPlayer);
     }
-    
+
     this.b.setTypeAtPosition(position, this.currentPlayer);
     this.currentPlayer = otherPlayer(this.currentPlayer);
   };
@@ -193,23 +193,23 @@ var Reversi = function () {
     }
     return legalMoves;
   };
-  
+
   var refreshLocalStorage = function() {
     if (window.localStorage.record != undefined) {
       $('#chart').empty();
       $('#chart').append('<ol></ol>');
       var chart = JSON.parse(window.localStorage.getItem('record'));
-      
-      chart.sort(function(a, b) { 
+
+      chart.sort(function(a, b) {
         return b.score.me - a.score.me;
       });
-      
-      chart.forEach(function(item) {            
+
+      chart.forEach(function(item) {
         var position = '<li>' + item.name + ' <span class="float_right">' + item.score.me + ' - ' + item.score.opponent + '</span></li>'
         $('#record ol').append(position);
       });
     }
-    
+
     if (game.game_type == 2) {
       $('#player_1_name').html(window.localStorage.getItem('name_1'));
       $('#player_2_name').html(window.localStorage.getItem('name_2'));
@@ -217,13 +217,13 @@ var Reversi = function () {
       $('#player_1_name').html(window.localStorage.getItem('name'));
       $('#player_2_name').html('Computer');
     }
-    
+
   };
 
 
   var updateChart = function(name, my_score, opponent_score) {
     var current_name = name == undefined ? window.localStorage.name : name;
-      
+
     var obj = {
       'name' : current_name,
       'score' : {
@@ -231,32 +231,32 @@ var Reversi = function () {
         'opponent' : opponent_score
       }
     }
-    
+
     if (window.localStorage.record == undefined) {
-      var chart = [];      
+      var chart = [];
     } else {
       var chart = JSON.parse(window.localStorage.record);
     }
 
     chart.push(obj);
-    
+
     var last = chart[chart.length - 1];
-    
+
     if (chart.length > 1 && my_score > last.score.me) {
-      chart.sort(function(a, b) { 
+      chart.sort(function(a, b) {
         return b.score.me - a.score.me;
       });
     }
-    
+
     if (chart.length > 10) {
       chart.splice(9, 1);
     }
-    
+
     window.localStorage.setItem('record', JSON.stringify(chart));
-    
+
     refreshLocalStorage();
   };
-  
+
   Reversi.prototype.getLegalMoves = function () {
     /// <summary>Find all legal moves where a piece is placed on board and turns opponent pieces
     /// if None are found - see if other player has options
@@ -298,7 +298,7 @@ var Reversi = function () {
       var c = event.data.column;
       clickEventHandler(r, c);
     };
-    
+
     for (rowIndex = 0; rowIndex < 8; rowIndex++) {
       row = $("<tr>")//.append($("<td>").append(rowName[rowIndex]));
       for (columnIndex = 0; columnIndex < 8; columnIndex++) {
@@ -314,53 +314,53 @@ var Reversi = function () {
           playerTwoCount = playerTwoCount + 1;
           field.addClass("p2").append('<div></div');
         }
-        
+
         // Draw field
         if (type === 0) {
           field.click({ row: rowIndex, column: columnIndex }, internalClickEventHandler);
         }
         row.append(field);
       }
-      table.append(row);    
+      table.append(row);
     }
-    
+
     if (allowedMoves.length === 1 && allowedMoves[0].isPassMove()) {
       $("#pass_button").removeClass('button_disabled');
       $("#pass_button").click(passHandler);
     } else {
       $("#pass_button").addClass('button_disabled');
     }
-    
+
     var state = "";
     if (allowedMoves.length === 1 && allowedMoves[0].isGameOver()) {
       state = "Game over";
       var selector = '#end_game #result';
       $(selector).empty();
       var result_string = '<div class="inner_standard">';
-      
+
       // Single player
       if (game.game_type == undefined) {
         result_string = 'You won!';
-        
+
         var result = 'win';
-        
-        if (playerOneCount < playerTwoCount) { 
-          result_string = 'You lose :('; 
-          result = 'lose'; 
+
+        if (playerOneCount < playerTwoCount) {
+          result_string = 'You lose :(';
+          result = 'lose';
         } if (playerOneCount == playerTwoCount) {
-          result_string = "It's a tie! :|" 
+          result_string = "It's a tie! :|"
           result = 'tie';
         } else {
           updateChart(playerOneCount, playerTwoCount);
         }
       } else { // Two players
         var result = 'win';
-        
+
         if (playerOneCount == playerTwoCount) {
-          result_string = "It's a tie! :|" 
+          result_string = "It's a tie! :|"
           result = 'tie';
         } else {
-          
+
           if (playerOneCount > playerTwoCount) {
             var winner_name = window.localStorage.getItem('name_1');
             result_string = winner_name + " won!";
@@ -372,17 +372,19 @@ var Reversi = function () {
           }
         }
       }
-      
+
       $(selector).append(result_string);
       $(selector).append('<br />' + playerOneCount + ' - ' + playerTwoCount + '</div>');
-      
+
       $.mobile.changePage($('#end_game'));
-      game.playSound("sounds/" + result + ".mp3");
+      if (result != 'tie') {
+        game.playSound("sounds/" + result + ".mp3");
+      }
     }
-    
+
     $('#player_1 .score').html("").append(playerOneCount);
     $('#player_2 .score').html("").append(playerTwoCount);
-    
+
     return table;
   };
 
@@ -412,23 +414,23 @@ var Reversi = function () {
     ply,
     withPruning, maxPlayer) {
     /// <summary>Minimax with optional alpha-beta pruning
-    /// 
-    /// Arguments: 
+    ///
+    /// Arguments:
     ///
     ///   state - A state object send as first argument to
     ///   evaluationFunction - Function returning a value given a state
-    ///   getActionsFunction - Function returning an array of allowed moves 
-    ///   performActionFunction - Function returning a new state when applying an action 
+    ///   getActionsFunction - Function returning an array of allowed moves
+    ///   performActionFunction - Function returning a new state when applying an action
     ///   ply - Number of moves to search
     ///   withPruning - True/False whether to use alpha-beta pruning
-    ///   maxPlayer - Function that given a state specifies whether it should maximize or minimize.  
+    ///   maxPlayer - Function that given a state specifies whether it should maximize or minimize.
     /// </summary>
     var nodes = 0;
     var evaluations = 0;
     withPruning = withPruning || false; // Run without pruning if not specified
     maxPlayer = maxPlayer || (function (x) { return true; }); // Assume player 1
 
-    // Test if we are at a leaf either because of search depth or because of end-of-game.	
+    // Test if we are at a leaf either because of search depth or because of end-of-game.
 
     function leaf(state, ply) {
       if (ply === 0) {
@@ -549,12 +551,12 @@ var Reversi = function () {
     }
     return value;
   };
-  
+
   var runGame = function (game_type) {
     /// <summary>Run the game</summary>
     var game = new Reversi();
     game.setup(game_type);
-    
+
     var opponentMove = function () {
       /// <summary>Make a computer move</summary>
       /// <returns type="">Returns the opponent move</returns>
@@ -580,23 +582,23 @@ var Reversi = function () {
             bestMove = getBestMoveMinimax(game, simpleEvaluator, 4);
             break;
         }
-        
+
         game.makeMove(bestMove);
-        
+
         setTimeout(function(){
           drawBoardWithEventHandlers();
           game.playPieceSound();
         }, 700);
-        
+
         return bestMove;
       }
     };
-    
+
     var drawBoardWithEventHandlers = function () {
       var board = drawBoard(game, eventHandler, passHandler);
       $("#board").html(board);
     };
-    
+
     var passHandler = function () {
       try {
         var move = passMove();
@@ -611,7 +613,7 @@ var Reversi = function () {
           game.playPieceSound();
         }, 700);
     };
-    
+
     // Push the error in case of illegal moves
     var eventHandler = function (row, column) {
       try {
@@ -622,16 +624,16 @@ var Reversi = function () {
       catch (err) {
         return;
       }
-      
+
       drawBoardWithEventHandlers();
       if (game.game_type === undefined) {
         opponentMove();
       }
-      
+
     };
-      
+
     drawBoardWithEventHandlers();
-    
+
     var randomBackground = function() {
       // Random background
       var backgroundColor = '';
@@ -641,20 +643,20 @@ var Reversi = function () {
       var currentBackgroundMatch = $('#game').css('background').match(/base_reversi.*.png/gi);
       var newBackground = 'base_reversi' + backgroundColor + '.png';
       var oldBackground = currentBackgroundMatch[0];
-      
+
       if (oldBackground.match(/@/) !== null) {
         var parts = oldBackground.split('@');
         newBackground = 'base_reversi' + backgroundColor + '@' + parts[1];
-      } 
-      
+      }
+
       $('#game').css('background', "url('img/" + newBackground + "') 0 0 no-repeat");
-      
+
       if (newBackground.match(/base_reversi_dynamite.*/) !== null) {
         $('#player_1').css('color', '#000000');
       } else {
         $('#player_1').css('color', '#ffffff');
       }
-      
+
       backgroundList = null;
       backgroundColor = null;
       currentBackgroundMatch = null;
@@ -662,7 +664,7 @@ var Reversi = function () {
       newBackground = null;
       parts = null;
     };
-    
+
     $("#replay_button").click(
        function () {
          if (game.game_type == 2) {
@@ -670,11 +672,11 @@ var Reversi = function () {
          } else {
            runGame();
          }
-         
+
          randomBackground();
          $.mobile.changePage($('#game'));
        });
-    
+
     $('#sounds_option').change(
       function() {
         game.sounds_option = $(this).val();
@@ -691,7 +693,7 @@ var Reversi = function () {
         $('#name_field').show();
         $('#names_field').hide();
       });
-      
+
     $('#two_players_button').click(
       function() {
         $('#name_1').val(window.localStorage.name_1);
@@ -699,8 +701,8 @@ var Reversi = function () {
         $('#names_field').show();
         $('#name_field').hide();
       });
-      
-    $('#start_button').unbind('click').click( 
+
+    $('#start_button').unbind('click').click(
       function() {
         var name = $("input[name='name']:text").val();
         runGame();
@@ -709,8 +711,8 @@ var Reversi = function () {
         $('#player_1_name').html(window.localStorage.getItem('name'));
         $('#name_field').hide();
       });
-    
-    $('#start_button_two').unbind('click').click( 
+
+    $('#start_button_two').unbind('click').click(
       function() {
         var name_1 = $("input[name='name_1']:text").val();
         var name_2 = $("input[name='name_2']:text").val();
@@ -722,12 +724,12 @@ var Reversi = function () {
         $('#player_2_name').html(window.localStorage.getItem('name_2'));
         $('#names_field').hide();
       });
-    
+
     $('#name, #name_1, #name_2').focus(
       function() {
         $(this).val('');
       });
-      
+
     // Avoid popup closing
     $("#pause_game").on({
       popupbeforeposition: function () {

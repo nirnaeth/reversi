@@ -795,8 +795,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Monica Giambitto";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Monica Giambitto";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Monica Giambitto (36RH4KL79U)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Monica Giambitto (36RH4KL79U)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -822,8 +822,8 @@
 					"-all_load",
 					"-Obj-C",
 				);
-				PROVISIONING_PROFILE = "C42E0FB1-D0BA-475D-AB0E-097000A36579";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C42E0FB1-D0BA-475D-AB0E-097000A36579";
+				PROVISIONING_PROFILE = "23BD29B3-942A-4B44-AD62-305E4E8159FB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "23BD29B3-942A-4B44-AD62-305E4E8159FB";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";

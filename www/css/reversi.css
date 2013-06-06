@@ -37,7 +37,7 @@ body {
   color: #D01B2B;
 }
 
-.ui-body-c, 
+.ui-body-c,
 .ui-overlay-c {
   background-color: #000000;
 }
@@ -47,20 +47,20 @@ section h2 {
   text-align: center;
 }
 
-.ui-body-c, 
-.ui-overlay-c,
 .ui-body-c,
 .ui-overlay-c,
 .ui-body-c,
 .ui-overlay-c,
-.ui-btn-up-a, 
-.ui-btn-hover-a, 
+.ui-body-c,
+.ui-overlay-c,
+.ui-btn-up-a,
+.ui-btn-hover-a,
 .ui-btn-down-a {
  font-family: 'Impact', Arial, sans-serif;
 }
 
-.ui-btn-up-a, 
-.ui-btn-hover-a, 
+.ui-btn-up-a,
+.ui-btn-hover-a,
 .ui-btn-down-a {
   font-weight: 100;
 }
@@ -73,7 +73,7 @@ section h2 {
   float: left;
 }
 
-#game.ui-body-c, 
+#game.ui-body-c,
 #game.ui-overlay-c,
 #options.ui-body-c,
 #options.ui-overlay-c {
@@ -162,7 +162,7 @@ table {
 #end_game {
   text-align: center;
   font-size: 1.5em;
-} 
+}
 
 #chart {
   font-size: 1.3em;
@@ -250,13 +250,10 @@ input[type="text"] {
     clear: both;
 }
 
-@media
-only screen and (-webkit-min-device-pixel-ratio: 1.5),
-only screen and (min--moz-device-pixel-ratio: 1.5),
-only screen and (-o-min-device-pixel-ratio: 1.5),
-only screen and (-moz-min-device-pixel-ratio: 1.5),
-only screen and (min-device-pixel-ratio: 1.5) {
-  
+
+/* IPHONE 4, 4s */
+@media screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2) {
+
   #game,
   #game_menu,
   #end_game,
@@ -268,13 +265,13 @@ only screen and (min-device-pixel-ratio: 1.5) {
     -webkit-background-size: 320px 480px;
     background-size: 320px 480px;
   }
-  
+
   #game {
     background: url('../img/base_reversi_sunandsnow@2x.png') 0 0 no-repeat;
   }
-  
+
   #pause_game,
-  #game_menu, 
+  #game_menu,
   #end_game,
   #how_to,
   #credits,
@@ -282,30 +279,30 @@ only screen and (min-device-pixel-ratio: 1.5) {
   #record {
     background: url('../img/empty_base@2x.png') 0 0 no-repeat;
   }
-  
+
   td.p1 div,
   td.p2 div,
   td.allowed {
     -webkit-background-size: 35px 35px;
     background-size: 35px 35px;
   }
-  
+
   td.allowed {
     background: url('../img/nera@2x.png') 0 0 no-repeat;
     opacity: 0.4;
   }
-  
+
   td.p1 div {
     background: url('../img/nera@2x.png') 0 0 no-repeat;
   }
-  
+
   td.p2 div {
     background: url('../img/rossa@2x.png') 0 0 no-repeat;
   }
 }
 
-
-@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+/* IPHONE 5 */
+@media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) {
   #game,
   #game_menu,
   #end_game,
@@ -316,16 +313,16 @@ only screen and (min-device-pixel-ratio: 1.5) {
   #record {
     -webkit-background-size: 320px 568px;
     background-size: 320px 568px;
-  }  
-  
+  }
+
   #game {
     background: url('../img/base_reversi_sunandsnow@5.png') 0 0 no-repeat;
   }
-  
+
   #game_menu {
     height: 568px;
   }
-  
+
   #game_menu,
   #pause_game,
   #end_game,
@@ -335,4 +332,91 @@ only screen and (min-device-pixel-ratio: 1.5) {
   #record {
     background: url('../img/empty_base@5.png') 0 0 no-repeat;
   }
+}
+
+/* IPAD 1, 2, Mini */
+@media screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 1) {
+  #game,
+  #game_menu,
+  #end_game,
+  #credits,
+  #how_to,
+  #pause_game,
+  #options,
+  #record {
+    -webkit-background-size: 768px 1024px;
+    background-size: 768px 1024px;
+  }
+
+  #game {
+    background: url('../img/base_reversi_sunandsnow@ipad.png') 0 0 no-repeat;
+  }
+
+  #game_menu {
+    height: 1024px;
+  }
+
+  #game_menu,
+  #pause_game,
+  #end_game,
+  #how_to,
+  #credits,
+  #options,
+  #record {
+    background: url('../img/empty_base@ipad.png') 0 0 no-repeat;
+  }
+
+  #rules {
+    height: 612px;
+  }
+
+  .inner_standard,
+  table {
+    width: 728px;
+    margin: 15px 20px 0 20px;
+  }
+}
+
+/* IPAD 3, 4 */
+@media screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) {
+  #game,
+  #game_menu,
+  #end_game,
+  #credits,
+  #how_to,
+  #pause_game,
+  #options,
+  #record {
+    -webkit-background-size: 768px 1024px;
+    background-size: 768px 1024px;
+  }
+
+  #game {
+    background: url('../img/base_reversi_sunandsnow@ipad2x.png') 0 0 no-repeat;
+  }
+
+  #game_menu {
+    height: 1024px;
+  }
+
+  #game_menu,
+  #pause_game,
+  #end_game,
+  #how_to,
+  #credits,
+  #options,
+  #record {
+    background: url('../img/empty_base@ipad2x.png') 0 0 no-repeat;
+  }
+
+  #rules {
+    height: 612px;
+  }
+
+  .inner_standard,
+  table {
+    width: 728px;
+    margin: 15px 20px 0 20px;
+  }
+
 }

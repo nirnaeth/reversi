@@ -639,9 +639,9 @@ var Reversi = function () {
       var backgroundColor = '';
       //var backgroundList = ['_astralia', '_brownfield', '_cucina', '_dynamite', '_goldfish', '_uno'];
       var backgroundList = ['_astralia', '_brownfield', '_sunandsnow'];
-      backgroundImage = backgroundList[Math.floor(Math.random() * backgroundList.length)];
-      var currentBackgroundMatch = $('#game').css('background').match(/base_reversi.*.jpg/gi);
-      var newBackground = 'base_reversi' + backgroundImage + '.jpg  ';
+      var backgroundImage = backgroundList[Math.floor(Math.random() * backgroundList.length)];
+      var currentBackgroundMatch = $('#game').css('background').match(/base_reversi.*.png/gi);
+      var newBackground = 'base_reversi' + backgroundImage + '.png  ';
       var oldBackground = currentBackgroundMatch[0];
 
       if (oldBackground.match(/@/) !== null) {

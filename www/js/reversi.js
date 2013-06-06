@@ -641,7 +641,7 @@ var Reversi = function () {
       var backgroundList = ['_astralia', '_brownfield', '_sunandsnow'];
       backgroundImage = backgroundList[Math.floor(Math.random() * backgroundList.length)];
       var currentBackgroundMatch = $('#game').css('background').match(/base_reversi.*.jpg/gi);
-      var newBackground = 'base_reversi' + backgroundImage + '.jpg';
+      var newBackground = 'base_reversi' + backgroundImage + '.jpg  ';
       var oldBackground = currentBackgroundMatch[0];
 
       if (oldBackground.match(/@/) !== null) {

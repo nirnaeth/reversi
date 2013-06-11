@@ -646,8 +646,10 @@ var Reversi = function () {
 
       if (oldBackground.match(/@/) !== null) {
         var parts = oldBackground.split('@');
-        newBackground = 'base_reversi' + backgroundColor + '@' + parts[1];
+        newBackground = 'base_reversi' + backgroundImage + '@' + parts[1];
       }
+      
+      alert(newBackground);
 
       $('#game').css('background', "url('img/" + newBackground + "') 0 0 no-repeat");
 

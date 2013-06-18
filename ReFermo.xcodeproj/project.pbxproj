@@ -102,6 +102,11 @@
 		E4A2115F17672A7100A8D09B /* base_reversi_sunandsnow.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A2115617672A7100A8D09B /* base_reversi_sunandsnow.png */; };
 		E4A2116017672A7100A8D09B /* base_reversi_sunandsnow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A2115717672A7100A8D09B /* base_reversi_sunandsnow@2x.png */; };
 		E4A2116117672A7100A8D09B /* base_reversi_sunandsnow@5.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A2115817672A7100A8D09B /* base_reversi_sunandsnow@5.png */; };
+		E4A2116717675DD100A8D09B /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A2116217675DD000A8D09B /* icon-72@2x.png */; };
+		E4A2116817675DD100A8D09B /* icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A2116317675DD000A8D09B /* icon-Small-50.png */; };
+		E4A2116917675DD100A8D09B /* icon-Small-50@2x.png.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A2116417675DD000A8D09B /* icon-Small-50@2x.png.png */; };
+		E4A2116A17675DD100A8D09B /* icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A2116517675DD000A8D09B /* icon-Small.png */; };
+		E4A2116B17675DD100A8D09B /* icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4A2116617675DD000A8D09B /* icon-Small@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,7 +130,7 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* FermoRev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FermoRev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* ReFermo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReFermo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1F766FDD13BBADB100FB74C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -153,13 +158,13 @@
 		3088BBBA154F3926009F9C59 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		3088BBBB154F3926009F9C59 /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
 		3088BBBC154F3926009F9C59 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
-		308D052E1370CCF300D202BF /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
-		308D052F1370CCF300D202BF /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		308D05301370CCF300D202BF /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		308D052E1370CCF300D202BF /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-72.png"; path = "icons/icon-72.png"; sourceTree = "<group>"; };
+		308D052F1370CCF300D202BF /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = icons/icon.png; sourceTree = "<group>"; };
+		308D05301370CCF300D202BF /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "icons/icon@2x.png"; sourceTree = "<group>"; };
 		30E1352610E2C1420031B30D /* Cordova.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Cordova.plist; path = ../Cordova.plist; sourceTree = "<group>"; };
 		30E5649113A7FCAF007403D8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		32CA4F630368D1EE00C91783 /* FermoRev-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FermoRev-Prefix.pch"; sourceTree = "<group>"; };
-		8D1107310486CEB800E47090 /* FermoRev-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "FermoRev-Info.plist"; path = "../FermoRev-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* ReFermo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ReFermo-Prefix.pch"; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* ReFermo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "ReFermo-Info.plist"; path = "../ReFermo-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		E45F6C8A165D100300D1380A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../../Default-568h@2x.png"; sourceTree = "<group>"; };
 		E4889962163DA441002F80E8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		E4889964163DA473002F80E8 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -223,6 +228,11 @@
 		E4A2115617672A7100A8D09B /* base_reversi_sunandsnow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base_reversi_sunandsnow.png; sourceTree = "<group>"; };
 		E4A2115717672A7100A8D09B /* base_reversi_sunandsnow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "base_reversi_sunandsnow@2x.png"; sourceTree = "<group>"; };
 		E4A2115817672A7100A8D09B /* base_reversi_sunandsnow@5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "base_reversi_sunandsnow@5.png"; sourceTree = "<group>"; };
+		E4A2116217675DD000A8D09B /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-72@2x.png"; path = "icons/icon-72@2x.png"; sourceTree = "<group>"; };
+		E4A2116317675DD000A8D09B /* icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-Small-50.png"; path = "icons/icon-Small-50.png"; sourceTree = "<group>"; };
+		E4A2116417675DD000A8D09B /* icon-Small-50@2x.png.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-Small-50@2x.png.png"; path = "icons/icon-Small-50@2x.png.png"; sourceTree = "<group>"; };
+		E4A2116517675DD000A8D09B /* icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-Small.png"; path = "icons/icon-Small.png"; sourceTree = "<group>"; };
+		E4A2116617675DD000A8D09B /* icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-Small@2x.png"; path = "icons/icon-Small@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,7 +277,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* FermoRev.app */,
+				1D6058910D05DD3D006BFB54 /* ReFermo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -308,7 +318,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32CA4F630368D1EE00C91783 /* FermoRev-Prefix.pch */,
+				32CA4F630368D1EE00C91783 /* ReFermo-Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
@@ -318,6 +328,14 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E4A2116217675DD000A8D09B /* icon-72@2x.png */,
+				E4A2116317675DD000A8D09B /* icon-Small-50.png */,
+				E4A2116417675DD000A8D09B /* icon-Small-50@2x.png.png */,
+				E4A2116517675DD000A8D09B /* icon-Small.png */,
+				E4A2116617675DD000A8D09B /* icon-Small@2x.png */,
+				308D052E1370CCF300D202BF /* icon-72.png */,
+				308D052F1370CCF300D202BF /* icon.png */,
+				308D05301370CCF300D202BF /* icon@2x.png */,
 				30A0434214DC770100060A13 /* de.lproj */,
 				30A0434514DC770100060A13 /* se.lproj */,
 				1F766FDB13BBADB100FB74C0 /* en.lproj */,
@@ -326,7 +344,7 @@
 				308D052D1370CCF300D202BF /* icons */,
 				308D05311370CCF300D202BF /* splash */,
 				30E1352610E2C1420031B30D /* Cordova.plist */,
-				8D1107310486CEB800E47090 /* FermoRev-Info.plist */,
+				8D1107310486CEB800E47090 /* ReFermo-Info.plist */,
 				307D28A1123043350040C0FA /* CordovaBuildSettings.xcconfig */,
 			);
 			name = Resources;
@@ -373,9 +391,6 @@
 		308D052D1370CCF300D202BF /* icons */ = {
 			isa = PBXGroup;
 			children = (
-				308D052E1370CCF300D202BF /* icon-72.png */,
-				308D052F1370CCF300D202BF /* icon.png */,
-				308D05301370CCF300D202BF /* icon@2x.png */,
 			);
 			path = icons;
 			sourceTree = "<group>";
@@ -574,9 +589,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* FermoRev */ = {
+		1D6058900D05DD3D006BFB54 /* ReFermo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "FermoRev" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "ReFermo" */;
 			buildPhases = (
 				304B58A110DAC018002A0835 /* Touch www folder */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
@@ -588,9 +603,9 @@
 			dependencies = (
 				301BF551109A68C00062928A /* PBXTargetDependency */,
 			);
-			name = FermoRev;
+			name = ReFermo;
 			productName = reversi;
-			productReference = 1D6058910D05DD3D006BFB54 /* FermoRev.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* ReFermo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -601,7 +616,7 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "FermoRev" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ReFermo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -625,7 +640,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* FermoRev */,
+				1D6058900D05DD3D006BFB54 /* ReFermo */,
 			);
 		};
 /* End PBXProject section */
@@ -707,6 +722,11 @@
 				E4A2115F17672A7100A8D09B /* base_reversi_sunandsnow.png in Resources */,
 				E4A2116017672A7100A8D09B /* base_reversi_sunandsnow@2x.png in Resources */,
 				E4A2116117672A7100A8D09B /* base_reversi_sunandsnow@5.png in Resources */,
+				E4A2116717675DD100A8D09B /* icon-72@2x.png in Resources */,
+				E4A2116817675DD100A8D09B /* icon-Small-50.png in Resources */,
+				E4A2116917675DD100A8D09B /* icon-Small-50@2x.png.png in Resources */,
+				E4A2116A17675DD100A8D09B /* icon-Small.png in Resources */,
+				E4A2116B17675DD100A8D09B /* icon-Small@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -786,13 +806,13 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "reversi/FermoRev-Prefix.pch";
+				GCC_PREFIX_HEADER = "reversi/ReFermo-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "reversi/FermoRev-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				PRODUCT_NAME = FermoRev;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				INFOPLIST_FILE = "reversi/ReFermo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = ReFermo;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -805,15 +825,15 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Monica Giambitto";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "reversi/FermoRev-Prefix.pch";
+				GCC_PREFIX_HEADER = "reversi/ReFermo-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "reversi/FermoRev-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				PRODUCT_NAME = FermoRev;
+				INFOPLIST_FILE = "reversi/ReFermo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = ReFermo;
 				PROVISIONING_PROFILE = "BD8D56A4-6AD6-42FE-8079-1F4045269C59";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BD8D56A4-6AD6-42FE-8079-1F4045269C59";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -920,7 +940,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "FermoRev" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "ReFermo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
@@ -929,7 +949,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "FermoRev" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ReFermo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

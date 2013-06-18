@@ -649,8 +649,6 @@ var Reversi = function () {
         newBackground = 'base_reversi' + backgroundImage + '@' + parts[1];
       }
       
-      alert(newBackground);
-
       $('#game').css('background', "url('img/" + newBackground + "') 0 0 no-repeat");
 
       if (newBackground.match(/base_reversi_dynamite.*/) !== null) {
